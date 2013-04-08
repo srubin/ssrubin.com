@@ -21,24 +21,7 @@
 <script type="text/javascript" src="http://use.typekit.com/bjd4vln.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-    <script type="text/javascript">                                         
- $(function(){
-  $("#sports").click(function() {
-  	$(".sportsblock").slideToggle("fast");
-  });
-  
-  $("#indie").click(function() {
-  	$(".indieblock").slideToggle("fast");
-  });
-  
-  $("#toys").click(function() {
-  	$(".toysblock").slideToggle("fast");
-  });
-   
- });
 
-    </script>
   </head>
 
   <body>
@@ -217,5 +200,19 @@ Manas Mittal, Wei Wu, <strong>Steve Rubin</strong>, Sam Madden, Bjoern Hartmann
     <div id="containerfoot"> </div>
 </div>
 <div id="foot"> </div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script type="text/javascript">                                         
+$(function(){
+   $(document).on('click', '#sports', function () {
+       $(".sportsblock").slideToggle('fast');
+   }).on('click', '#indie', function () {
+       $(".indieblock").slideToggle('fast');
+   }).on('click', '#toys', function () {
+       $(".toysblock").slideToggle('fast');
+   });
+});
+</script>
+
   </body>
 </html>
