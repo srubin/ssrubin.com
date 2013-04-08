@@ -1,0 +1,95 @@
+body {
+	background-color: #E7FAED;
+	font-family: "American Typewriter", "Bookman Old Style", "Times New Roman";
+}
+
+#content {
+	width: 700px;
+	margin: 0 auto;
+	padding: 20px;
+	//background-color: #FFBB6E;
+}
+
+h1 {
+	text-align: center;
+	font-weight: normal;
+	font-size: 48pt;
+	padding: 0px;
+	color: #011F2B;
+}
+
+h2 {
+	font-weight: normal;
+	width: 500px;
+	margin: 0 auto;
+	padding: 0px;
+	color: #011F2B;
+}
+
+#entry {
+	text-align: center;
+	font-size: 14pt;
+	padding: 30px;
+}
+
+label, input, button {
+	font-size: 14pt;
+	font-family: "American Typewriter", "Bookman Old Style", "Times New Roman";
+}
+
+#loadingDiv {
+}
+
+#loadingDiv img {
+	display: block;
+	margin: 0 auto;
+	width: 30px;
+	height: 30px;
+}
+
+#results td {
+	padding: 10px;
+	margin: 10px;
+}
+
+#about {
+	width: 500px;
+	margin: 0 auto;
+}
+
+a:link.footnote {
+	text-decoration: none;
+}
+
+a:hover.footnote {
+	text-decoration: underline;
+}
+
+a {
+	color: #011F2B;
+}
+
+a:hover, a:visited {
+	color: #91BD49;
+}
+
+#results {
+	text-align: center;
+}
+
+#results table {
+	margin: 0 auto; 
+	text-align: left;
+}
+
+#contact {
+	padding: 20px;
+	display: block;
+	text-align: center;
+}
+
+.button {
+	text-decoration: underline;
+	cursor: pointer;
+	* cursor: hand;
+}

@@ -1,0 +1,7 @@
+For scraping black cab sessions. Some random capitalization.
+artists = []
+$('#chapterthumbnails div div a').each(function() { artists.push([$(this).attr("title"), $(this).attr("href")]); })
+
+For scraping daytrotter
+artists = []
+$(".nof.artists li:not(.label):not(.e)").each(function() { artists.push($(this).children().html()) });
