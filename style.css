@@ -72,6 +72,12 @@ h1, h2, h3, h4, h5, dt
 	float: right;
 }
 
+img {
+ 	-moz-box-shadow: 4px 4px 3px #888;
+	-webkit-box-shadow: 4px 4px 3px #888;
+	box-shadow: 4px 4px 3px #888;
+}
+
 .block
 {	
 	line-height: 1.5em;
