@@ -3,31 +3,37 @@ layout: 'default'
 ---
 
 <div class="row">
-    <div class="span6">
-        <h1>Steve Rubin</h1>
+    <div class="span2">
+        <img class="steve-img" src="img/steverubin.jpg" alt="" />
     </div>
-    <div class="span6">
-        <p>srubin at cs.berkeley.edu</p>
+    <div class="span10 pull-down">
+        <div class="row">
+            <div class="span5">
+                <h1>Steve Rubin</h1>
+            </div>
+            <div class="span5">
+                <p>srubin at cs.berkeley.edu</p>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="span5">
+                <%- @getAboutMe() %>
+            </div>
+            <div class="span5">
+                <h2><a href="<%- @site.root %>/posts.html">Latest posts</a></h2>
+                <% for post in @getCollection("posts").toJSON()[0..2]: %>
+                <p>
+                    <strong><%- @formatDate(post.date) %></strong> &ndash;
+                    <a href="<%- @site.root + post.url %>"><%- post.title %></a>
+                </p>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="span6">
-        <%- @getAboutMe() %>
-    </div>
-    <div class="span6">
-        <h2><a href="<%- @site.root %>/posts.html">Latest posts</a></h2>
-        <% for post in @getCollection("posts").toJSON()[0..2]: %>
-        <p>
-            <strong><%- @formatDate(post.date) %></strong> &ndash;
-            <a href="<%- @site.root + post.url %>"><%- post.title %></a>
-        </p>
-        <% end %>
-    </div>
-</div>
+<br>
 
-
-<hr>
 <div class="navigation-wrapper hidden-phone">
     <div class="navigation">
         <div id="main-navbar" class="navbar">

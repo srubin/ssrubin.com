@@ -22,7 +22,7 @@
 	<%- @getBlock('meta').toHTML() %>
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- Shims: IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -43,7 +43,7 @@
 	</div><!-- /container -->
 
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(["http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js","#{@site.root}/vendor/modernizr.js","#{@site.root}/vendor/twitter-bootstrap/js/bootstrap.min.js","#{@site.root}/scripts/script.js"]).toHTML() %>
+	<%- @getBlock('scripts').add(["http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", "#{@site.root}/vendor/modernizr.js","#{@site.root}/vendor/twitter-bootstrap/js/bootstrap.min.js", "#{@site.root}/vendor/jquery.imagesloaded.min.js", "#{@site.root}/scripts/script.js"]).toHTML() %>
 	
 	<script type="text/javascript">
 

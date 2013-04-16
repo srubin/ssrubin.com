@@ -3,6 +3,8 @@ title: "Research"
 write: false
 ---
 
+![The desk.](img/desk-fade.jpg)
+
 I am broadly interested in HCI, music, information visualization, and
 design. In my first two years at Berkeley, I have worked on audio
 editing interfaces, crowdsourcing graphical perception studies

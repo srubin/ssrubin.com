@@ -3,7 +3,7 @@ title: "Background"
 write: false
 ---
 
-![Williams College commencement, June 2011.](img/williams.jpg)
+![Williams College commencement, June 2011.](img/williams-fade.jpg)
 
 At Williams I served as president and root of [Williams Students
 Online][wso], competed on and co-captained the track and field team,

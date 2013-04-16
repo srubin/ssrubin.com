@@ -3,6 +3,8 @@ title: "Hobbies"
 write: false
 ---
 
+![My first trip to Tahoe (Squaw Valley)](img/snowboarding-fade.jpg)
+
 My hobbies include listening to music and going to shows
 
 * [my last.fm profile][lastfm]
@@ -19,8 +21,6 @@ working out and hiking, working on toy software projects,
 
 
 and, as of very recently, snowboarding.
-
-![My first trip to Tahoe (Squaw Valley)](img/snowboarding.jpg)
 
 [lastfm]: http://last.fm/user/StevoX
 [pj]: http://peppersjam.com

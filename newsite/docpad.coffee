@@ -99,6 +99,11 @@ docpadConfig = {
 				site:
 					root: "http://eecs.berkeley.edu/~srubin"
 
+		development:
+			templateData:
+				site:
+					root: ""
+
 	# =================================
 	# Collections
 

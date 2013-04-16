@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title><%= @site.title %></title>
+	<title>Steve Rubin's blog @ Berkeley EECS</title>
 	<link href="<%= @site.url %>/atom.xml" rel="self"/>
 	<link href="<%= @site.url %>"/>
 	<updated><%= @site.date.toISOString() %></updated>
@@ -10,7 +10,7 @@
 		<email><%= @site.email %></email>
 	</author>
 
-	<% for document in @getCollection('posts').toJSON(): %>
+	<% for document in @getCollection('posts').toJSON()[0..10]: %>
 		<entry>
 			<title><%= document.title %></title>
 			<link href="<%= @site.url+document.url %>"/>
