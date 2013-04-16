@@ -7,7 +7,7 @@ layout: 'default'
         <h1>Steve Rubin</h1>
     </div>
     <div class="span6">
-        <p>srubin at cs.berkeley.edu | resume/cv</p>
+        <p>srubin at cs.berkeley.edu</p>
     </div>
 </div>
 
@@ -16,11 +16,11 @@ layout: 'default'
         <%- @getAboutMe() %>
     </div>
     <div class="span6">
-        <h2><a href="/posts.html">Latest posts</a></h2>
+        <h2><a href="<%- @site.root %>/posts.html">Latest posts</a></h2>
         <% for post in @getCollection("posts").toJSON()[0..2]: %>
         <p>
             <strong><%- @formatDate(post.date) %></strong> &ndash;
-            <a href="<%- post.url %>"><%- post.title %></a>
+            <a href="<%- @site.root + post.url %>"><%- post.title %></a>
         </p>
         <% end %>
     </div>

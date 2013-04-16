@@ -1,6 +1,6 @@
 ---
-title: Site redesign
-layout: post
+title: "Site redesign"
+layout: "post"
 ---
 
 I'm working on an (admittedly simple) redesign of my site. I may

@@ -14,6 +14,8 @@ docpadConfig = {
 			# The production url of our website
 			url: "http://ssrubin.com"
 
+			root: ""
+
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
 				'http://www.cs.berkeley.edu/~srubin/',
@@ -38,8 +40,6 @@ docpadConfig = {
 
 			# The website author's email
 			email: "srubin@cs.berkeley.edu"
-
-
 
 		# -----------------------------
 		# Helper Functions
@@ -93,16 +93,16 @@ docpadConfig = {
 			"#{month}/#{day}/#{year}"
 
 
+	environments:
+		deploy:
+			templateData:
+				site:
+					root: "http://eecs.berkeley.edu/~srubin"
 
 	# =================================
 	# Collections
 
 	collections:
-		# For instance, this one will fetch in all documents that have pageOrder set within their meta data
-		pages: (database) ->
-			database.findAllLive({pageOrder: $exists: true}, [pageOrder:1,title:1])
-
-		# This one, will fetch in all documents that have the tag "post" specified in their meta data
 		posts: (database) ->
 			database.findAllLive({relativeOutDirPath: $startsWith: 'posts'}, [date:-1])
 
@@ -114,10 +114,9 @@ docpadConfig = {
 				date: -1
 
 			database.findAllLive(query, sorting).on "add", (pub) ->
-                pub.setMetaDefaults({
+                pub.setMeta(
                     write: false
-                    layout: "clean"
-                    })
+                )
 
 
 
@@ -149,7 +148,6 @@ docpadConfig = {
 				else
 					next()
 }
-
 
 # Export our DocPad Configuration
 module.exports = docpadConfig
