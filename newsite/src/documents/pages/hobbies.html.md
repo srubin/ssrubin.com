@@ -1,0 +1,28 @@
+---
+title: "Hobbies"
+write: false
+---
+
+My hobbies include listening to music and going to shows
+
+* [my last.fm profile][lastfm]
+* [Sgt. Pepper's Strawberry Jam][pj], my music blog
+
+watching professional (and occasionally college) sports
+
+* Go Steelers, Ephs, Bears, Lakers, Pirates, Sixers, Orange, and Tiger
+
+working out and hiking, working on toy software projects,
+
+* [vinyl-fm][vfm] (scrobble vinyl records automatically)
+* [lastday][lastday] (cross-reference last.fm profile with black cab and daytrotter sessions)
+
+
+and, as of very recently, snowboarding.
+
+![My first trip to Tahoe (Squaw Valley)](img/snowboarding.jpg)
+
+[lastfm]: http://last.fm/user/StevoX
+[pj]: http://peppersjam.com
+[vfm]: http://srubin.github.io/vinyl-fm/
+[lastday]: http://www.eecs.berkeley.edu/~srubin/toys/lastday/

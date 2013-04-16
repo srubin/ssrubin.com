@@ -1,0 +1,138 @@
+---
+layout: 'default'
+---
+
+<div class="row">
+    <div class="span6">
+        <h1>Steve Rubin</h1>
+    </div>
+    <div class="span6">
+        <p>srubin at cs.berkeley.edu | resume/cv</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span6">
+        <%- @getAboutMe() %>
+    </div>
+    <div class="span6">
+        <h2><a href="/posts.html">Latest posts</a></h2>
+        <% for post in @getCollection("posts").toJSON()[0..2]: %>
+        <p>
+            <strong><%- @formatDate(post.date) %></strong> &ndash;
+            <a href="<%- post.url %>"><%- post.title %></a>
+        </p>
+        <% end %>
+    </div>
+</div>
+
+
+<hr>
+<div class="navigation-wrapper hidden-phone">
+    <div class="navigation">
+        <div id="main-navbar" class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#background">Background</a></li>
+                        <li><a href="#hobbies">Hobbies</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#classes">Classes</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="maincontent">
+
+<div class="row top-buffer" id="research">
+    <div class="span2">
+        <h2>Research</h2>
+    </div>
+    <div class="span8">
+        <%- @getResearchInfo() %>
+    </div>
+</div>
+
+<div class="row top-buffer">
+    <div class="offset2 span10">
+        <h3>Publications</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset2 span8">
+        <% pubs = @getCollection("pubs").toJSON() %>
+        <% oldPub = false %>
+        <% for pub, i in pubs: %>
+        <% if pub.oldPub? and pub.oldPub and not oldPub: %>
+        <h3>Old publications (unrelated to current interests)</h3>
+        <% oldPub = true %>
+        <% end %>
+        <div class="paper">
+            <% if pub.link?: %>
+            <a href="<%- pub.link %>"><%- pub.title %></a><br />
+            <% else: %>
+            <%- pub.title %><br />
+            <% end %>
+            <%- pub.authors %><br />
+            <%- pub.venueFull %> (<%- pub.venueShort %>).
+            <%- pub.contentRendered %>
+            <% if i < pubs.length - 1: %>
+            <hr>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="row top-buffer" id="background">
+    <div class="span2">
+        <h2>Background</h2>
+    </div>
+    <div class="span8">
+        <%- @getBackground() %>
+    </div>
+</div>
+
+<div class="row top-buffer" id="hobbies">
+    <div class="span2">
+        <h2>Hobbies</h2>
+    </div>
+    <div class="span8">
+        <%- @getHobbies() %>
+    </div>
+</div>
+
+<div class="row top-buffer" id="work">
+    <div class="span2">
+        <h2>Work</h2>
+    </div>
+    <div class="span8">
+        <%- @getWork() %>
+    </div>
+</div>
+
+<div class="row top-buffer" id="classes">
+    <div class="span2">
+        <h2>Classes</h2>
+    </div>
+    <div class="span8">
+        <%- @getClasses() %>
+    </div>
+</div>
+
+<div class="row top-buffer" id="projects">
+    <div class="span2">
+        <h2>Projects</h2>
+    </div>
+    <div class="span8">
+        <%- @getProjects() %>
+    </div>
+</div>
+
+</div> <!-- #maincontent -->

@@ -1,0 +1,30 @@
+---
+layout: "default"
+---
+
+<div class="row">
+    <div class="offset2 span6">
+        <h1>Posts</h1>
+    </div>
+    <div class="span4">
+        <p class="text-right">
+            <a href="/">Home</a>            
+        </p>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+<% for post in @getCollection("posts").toJSON(): %>
+    <div class="span2 text-right">
+        <h3><%- @formatDate(post.date) %></h3>
+    </div>
+    <div class="span8">
+        <h2><a href="<%- post.url %>"><%- post.title %></a></h2>
+        <%- post.contentRenderedWithoutLayouts %>
+    </div>
+
+<% end %>
+
+</div>
