@@ -32,9 +32,24 @@ layout: 'default'
     </div>
 </div>
 
-<br>
+<hr>
 
-<div class="navigation-wrapper hidden-phone">
+<div class="row">
+    <div class="offset2 span10">
+        <ul class="navlist">
+            <li><a href="#research">research</a></li>
+            <li><a href="#background">background</a></li>
+            <li><a href="#hobbies">hobbies</a></li>
+            <li><a href="#work">work</a></li>
+            <li><a href="#classes">classes</a></li>
+            <li><a href="#projects">projects</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<!-- <div class="navigation-wrapper hidden-phone">
     <div class="navigation">
         <div id="main-navbar" class="navbar">
             <div class="navbar-inner">
@@ -51,11 +66,11 @@ layout: 'default'
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div id="maincontent">
 
-<div class="row top-buffer" id="research">
+<div class="row" id="research">
     <div class="span2">
         <h2>Research</h2>
     </div>

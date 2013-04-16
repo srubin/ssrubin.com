@@ -88,3 +88,20 @@ p
 
 ol li, ul li
   line-height 18pt
+
+.navlist ul, .navlist li, .navlist
+  display inline
+  font-size 14pt
+  margin 0
+
+.navlist li:after
+  content ","
+
+.navlist li:first-child:before
+  content "Below: "
+
+.navlist li:last-child:before
+  content "and "
+
+.navlist li:last-child:after
+  content "."

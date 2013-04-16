@@ -9,22 +9,22 @@ pullDown = ->
     );
 
 $ ->
-    $('.navigation').affix({
-        offset: $('.navigation').position()
-    })
+    # $('.navigation').affix({
+    #     offset: $('.navigation').position()
+    # })
 
-    $('.navigation-wrapper').height($(".navigation").height());
+    # $('.navigation-wrapper').height($(".navigation").height());
 
-    $('body').scrollspy()
+    # $('body').scrollspy()
 
-    $('.navigation').css(
-            width: $('.container').width()
-        )
+    # $('.navigation').css(
+    #         width: $('.container').width()
+    #     )
 
     $(window).resize ->
-        $('.navigation.affix').css(
-            width: $('.container').width()
-        )
+        # $('.navigation.affix').css(
+        #     width: $('.container').width()
+        # )
         pullDown()
 
     $(".steve-img").imagesLoaded pullDown
