@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>lastday - a last.fm and daytrotter mashup</title>
+    <link rel=Stylesheet href="lastday.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
+    <script src="lastday.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25378808-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+
+  <body>
+ <div id="content">
+  <h1>lastday</h1>
+  <h2>Last day on earth? Listen to sweet sessions of your favorite bands from <a href="http://www.daytrotter.com">daytrotter</a> and <a href="http://www.blackcabsessions.com">black cab sessions.</a><a href="#" class="footnote">*</a></h2>
+  
+  <div id="about">
+  At the moment, the lists of artists from daytrotter and black cab sessions are static. This will be fixed soon! I'm also going to add La Blogotheque's takeaway shows.
+  </div>
+  
+  <div id="entry">
+    <label for="username">last.fm username</label>
+    <input id="username" name="username" type="textbox"/>
+    <button id="submit">find me some treats</button>
+  </div>
+  
+  
+  <div id="loadingDiv">
+  <img src="spinner.gif"></img>
+  </div>
+  
+  <div id="results">
+  </div>
+  
+  <div id="contact">
+  Contact Steve Rubin &mdash; srubin at cs.berkeley.edu &mdash; <a href="http://eecs.berkeley.edu/~srubin">site</a> 
+  </div>
+
+ </div>
+  </body>
+</html>
