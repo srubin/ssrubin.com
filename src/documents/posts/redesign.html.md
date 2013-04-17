@@ -1,10 +1,11 @@
 ---
 title: "Site redesign"
 layout: "post"
+date: "4/15/2013"
 ---
 
 I'm working on an (admittedly simple) redesign of my site. I may
-change things signifcantly from this form because
+change things significantly from this form because
 
 1. I am indecisive, and
 2. This is fun.

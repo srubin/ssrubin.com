@@ -20,7 +20,7 @@ layout: 'default'
                 <%- @getAboutMe() %>
             </div>
             <div class="span5">
-                <h2><a href="<%- @site.root %>/posts.html">Latest posts</a></h2>
+                <h2><a href="<%- @site.root %>/posts.html">Latest blog posts</a></h2>
                 <% for post in @getCollection("posts").toJSON()[0..2]: %>
                 <p>
                     <strong><%- @formatDate(post.date) %></strong> &ndash;
@@ -157,3 +157,4 @@ layout: 'default'
 </div>
 
 </div> <!-- #maincontent -->
+
