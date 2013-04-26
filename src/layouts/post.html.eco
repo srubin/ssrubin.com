@@ -11,7 +11,7 @@ layout: default
     </div>
     <div class="span4">
         <p class="text-right">
-            <a href="<%- @site.root %>/posts.html">Posts</a> | <a href="<%- @site.url %>">Home</a>          
+            <a href="<%- @site.root %>/posts.html">Posts</a> | <a href="<%- @site.root %>/">Home</a>          
         </p>
     </div>
 </div>
