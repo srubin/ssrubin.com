@@ -17,7 +17,7 @@ h3{font-size:14pt;margin:0}
 #maincontent ul{font-size:12pt;border-left:5px solid #8f8fbd;padding-left:15px}
 pre{padding:0;background:#fff}
 p{padding-top:5px;padding-bottom:5px}
-ol li,ul li{line-height:18pt}
+ol li,ul li{line-height:18pt;padding:3px}
 .navlist ul,.navlist li,.navlist{display:inline;font-size:14pt;margin:0}
 .navlist li:after{content:","}
 .navlist li:first-child:before{content:"Below: "}
