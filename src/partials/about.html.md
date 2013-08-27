@@ -1,8 +1,3 @@
----
-title: "About"
-write: false
----
-
 I am a second-year CS Ph.D. student at Berkeley. In 2011, I graduated
 from [Williams College][williams] where I majored in both Computer Science and
 Mathematics. I'm advised by [Maneesh Agrawala][maneesh].

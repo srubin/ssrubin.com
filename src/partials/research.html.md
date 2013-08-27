@@ -1,8 +1,3 @@
----
-title: "Research"
-write: false
----
-
 ![The desk.](img/desk-fade.jpg)
 
 I am broadly interested in HCI, music, information visualization, and

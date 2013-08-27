@@ -1,8 +1,3 @@
----
-title: "Classes"
-write: false
----
-
 I've taken several classes as part of the requirements for the Ph.D.
 program at Berkeley.
 

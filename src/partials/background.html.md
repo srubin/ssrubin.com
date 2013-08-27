@@ -1,8 +1,3 @@
----
-title: "Background"
-write: false
----
-
 ![Williams College commencement, June 2011.](img/williams-fade.jpg)
 
 At Williams I served as president and root of [Williams Students

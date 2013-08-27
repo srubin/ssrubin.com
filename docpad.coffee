@@ -65,27 +65,6 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
-		getAboutMe: ->
-			@getCollection("html").findOne({title: "About"}).toJSON().contentRendered
-
-		getResearchInfo: ->
-			@getCollection("html").findOne({title: "Research"}).toJSON().contentRendered
-
-		getBackground: ->
-			@getCollection("html").findOne({title: "Background"}).toJSON().contentRendered
-
-		getHobbies: ->
-			@getCollection("html").findOne({title: "Hobbies"}).toJSON().contentRendered
-
-		getWork: ->
-			@getCollection("html").findOne({title: "Work"}).toJSON().contentRendered
-
-		getClasses: ->
-			@getCollection("html").findOne({title: "Classes"}).toJSON().contentRendered
-
-		getProjects: ->
-			@getCollection("html").findOne({title: "Projects"}).toJSON().contentRendered
-
 		formatDate: (d) ->
 			day = d.getDate()
 			month = d.getMonth() + 1

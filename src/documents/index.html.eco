@@ -17,7 +17,7 @@ layout: 'default'
         </div>
         <div class="row">
             <div class="span5">
-                <%- @getAboutMe() %>
+                <%- @partial('about') %>
             </div>
             <div class="span5">
                 <h2><a href="<%- @site.root %>/posts.html">Latest blog posts</a></h2>
@@ -75,7 +75,7 @@ layout: 'default'
         <h2>Research</h2>
     </div>
     <div class="span8">
-        <%- @getResearchInfo() %>
+        <%- @partial('research') %>
     </div>
 </div>
 
@@ -116,7 +116,7 @@ layout: 'default'
         <h2>Background</h2>
     </div>
     <div class="span8">
-        <%- @getBackground() %>
+        <%- @partial('background') %>
     </div>
 </div>
 
@@ -125,7 +125,7 @@ layout: 'default'
         <h2>Hobbies</h2>
     </div>
     <div class="span8">
-        <%- @getHobbies() %>
+        <%- @partial('hobbies') %>
     </div>
 </div>
 
@@ -134,7 +134,7 @@ layout: 'default'
         <h2>Work</h2>
     </div>
     <div class="span8">
-        <%- @getWork() %>
+        <%- @partial('work') %>
     </div>
 </div>
 
@@ -143,7 +143,7 @@ layout: 'default'
         <h2>Classes</h2>
     </div>
     <div class="span8">
-        <%- @getClasses() %>
+        <%- @partial('classes') %>
     </div>
 </div>
 
@@ -152,7 +152,7 @@ layout: 'default'
         <h2>Projects</h2>
     </div>
     <div class="span8">
-        <%- @getProjects() %>
+        <%- @partial('classprojects') %>
     </div>
 </div>
 

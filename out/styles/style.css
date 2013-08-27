@@ -1,6 +1,6 @@
 *{-webkit-border-radius:0 !important;-moz-border-radius:0 !important;border-radius:0 !important}
 a,a:link{cursor:pointer}
-body{padding-top:40px;font-size:14pt;line-height:18pt;font-family:"PT Serif",serif}
+body{font-size:14pt;line-height:18pt;font-family:"PT Serif",serif;padding-top:40px}
 h1,h2,h3{font-family:"PT Sans";font-weight:700}
 h1{font-size:36pt;margin:0;line-height:42pt}
 h1 a{color:#000}

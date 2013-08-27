@@ -1,8 +1,3 @@
----
-title: "Hobbies"
-write: false
----
-
 ![My first trip to Tahoe (Squaw Valley)](img/snowboarding-fade.jpg)
 
 My hobbies include listening to music and going to shows
