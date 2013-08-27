@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Steve Rubin's blog @ Berkeley EECS</title>
-    <link href="http://ssrubin.com/atom.xml" rel="self"/>
-    <link href="http://ssrubin.com"/>
-    <updated>2013-04-26T06:02:51.130Z</updated>
-    <id>http://ssrubin.com</id>
-    <author>
-        <name>Steve Rubin</name>
-        <email>srubin@cs.berkeley.edu</email>
-    </author>
+	<title>Steve Rubin's blog @ Berkeley EECS</title>
+	<link href="http://ssrubin.com/atom.xml" rel="self"/>
+	<link href="http://ssrubin.com"/>
+	<updated>2013-08-27T21:39:56.770Z</updated>
+	<id>http://ssrubin.com</id>
+	<author>
+		<name>Steve Rubin</name>
+		<email>srubin@cs.berkeley.edu</email>
+	</author>
 
-    
-        <entry>
-            <title>A web-first research methodology</title>
-            <link href="http://ssrubin.com/posts/web-first.html"/>
-            <updated>2013-04-25T07:00:00.000Z</updated>
-            <id>http://ssrubin.com/posts/web-first.html</id>
-            <content type="html">&lt;p&gt;When I started grad school in the Fall of 2011, I didn&amp;#39;t consider
+	
+		<entry>
+			<title>A web-first research methodology</title>
+			<link href="http://ssrubin.com/posts/web-first.html"/>
+			<updated>2013-04-25T07:00:00.000Z</updated>
+			<id>http://ssrubin.com/posts/web-first.html</id>
+			<content type="html">&lt;p&gt;When I started grad school in the Fall of 2011, I didn&amp;#39;t consider
 myself to be an excellent programmer or a &lt;a href=&quot;http://news.ycombinator.com&quot;&gt;hacker&lt;/a&gt; or anything
 like that. On the other hand, I did consider myself to be an
 exceptional googler and &lt;a href=&quot;http://hci.stanford.edu/research/opportunistic/&quot;&gt;tinkerer&lt;/a&gt;; I could usually scrounge
@@ -76,14 +76,14 @@ if your research depends on it.&lt;/li&gt;
 encourage other graduate students (HCI and otherwise) to think about
 these things as they&amp;#39;re working on projects.&lt;/p&gt;
 </content>
-        </entry>
-    
-        <entry>
-            <title>Site redesign</title>
-            <link href="http://ssrubin.com/posts/redesign.html"/>
-            <updated>2013-04-15T07:00:00.000Z</updated>
-            <id>http://ssrubin.com/posts/redesign.html</id>
-            <content type="html">&lt;p&gt;I&amp;#39;m working on an (admittedly simple) redesign of my site. I may
+		</entry>
+	
+		<entry>
+			<title>Site redesign</title>
+			<link href="http://ssrubin.com/posts/redesign.html"/>
+			<updated>2013-04-15T07:00:00.000Z</updated>
+			<id>http://ssrubin.com/posts/redesign.html</id>
+			<content type="html">&lt;p&gt;I&amp;#39;m working on an (admittedly simple) redesign of my site. I may
 change things significantly from this form because&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;I am indecisive, and&lt;/li&gt;
@@ -98,6 +98,6 @@ banal, but my friends kept reading, so I kept writing.&lt;/p&gt;
 &lt;p&gt;As a graduate student, I probably have more interesting things to say
 now than I did back then. Probably.&lt;/p&gt;
 </content>
-        </entry>
-    
+		</entry>
+	
 </feed>
