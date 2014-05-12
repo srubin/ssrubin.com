@@ -3,13 +3,23 @@
 	<title>Steve Rubin's blog @ Berkeley EECS</title>
 	<link href="http://ssrubin.com/atom.xml" rel="self"/>
 	<link href="http://ssrubin.com"/>
-	<updated>2013-08-27T21:39:56.770Z</updated>
+	<updated>2014-05-12T07:07:24.104Z</updated>
 	<id>http://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
 		<email>srubin@cs.berkeley.edu</email>
 	</author>
 
+	
+		<entry>
+			<title>Browsers, Mechanical Turk, and external HITs</title>
+			<link href="http://ssrubin.com/posts/browsers-mturk-and-external-hits.html"/>
+			<updated>2013-11-13T08:00:00.000Z</updated>
+			<id>http://ssrubin.com/posts/browsers-mturk-and-external-hits.html</id>
+			<content type="html">&lt;p&gt;I had a lot of experiments running on &lt;a href=&quot;http://mturk.com&quot;&gt;Mechanical Turk&lt;/a&gt; this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&amp;#39;s server and embedded in Mechanical Turk via an &lt;code&gt;iframe&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I started posting tasks again recently, and my external HITs were no longer working. Chrome was blocking the content, because mturk is https and my external content was running on http. Thanks to this &lt;a href=&quot;http://wiki.bcs.rochester.edu/HlpLab/MTurkExperiments&quot;&gt;U Rochester site&lt;/a&gt; for steering me in the right direction.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If your external HITs mysteriously stop working on Mechanical Turk (or if it seems like many fewer people are doing your hits than before), blame it on  updated browsers and their &lt;s&gt;draconian&lt;/s&gt; new security settings, and start serving https content from your server.&lt;/p&gt;</content>
+		</entry>
 	
 		<entry>
 			<title>A web-first research methodology</title>
@@ -33,7 +43,8 @@ deep end. My code, hideous as it was, worked fine and allowed for
 rapid iteration.&lt;/p&gt;
 &lt;p&gt;Just to expand on the aforementioned hideousness, we&amp;#39;re talking a
 whole mess of global variables and inline HTML:&lt;/p&gt;
-&lt;pre class=&quot;highlighted&quot;&gt;&lt;code class=&quot;javascript&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;'body'&lt;/span&gt;).prepend(&lt;span class=&quot;string&quot;&gt;'&amp;lt;span id=&quot;codespan&quot;&amp;gt;&amp;lt;strong&amp;gt;Enter your code: &amp;lt;/strong&amp;gt;&amp;lt;input style=&quot;display: inline&quot; id=&quot;turkcode&quot; type=&quot;text&quot; name=&quot;turkcode&quot;&amp;gt;&amp;lt;/input&amp;gt;&amp;lt;button id=&quot;codebutton&quot;&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/span&amp;gt;'&lt;/span&gt;);&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs javascript&quot;&gt;$(&lt;span class=&quot;hljs-string&quot;&gt;'body'&lt;/span&gt;).prepend(&lt;span class=&quot;hljs-string&quot;&gt;'&amp;lt;span id=&quot;codespan&quot;&amp;gt;&amp;lt;strong&amp;gt;Enter your code: &amp;lt;/strong&amp;gt;&amp;lt;input style=&quot;display: inline&quot; id=&quot;turkcode&quot; type=&quot;text&quot; name=&quot;turkcode&quot;&amp;gt;&amp;lt;/input&amp;gt;&amp;lt;button id=&quot;codebutton&quot;&amp;gt;Submit&amp;lt;/button&amp;gt;&amp;lt;/span&amp;gt;'&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Oh dear.&lt;/p&gt;
 &lt;p&gt;My intention isn&amp;#39;t to call out how bad I was at javascript a year and
 half ago. I was inspired by the process. That project necessitated

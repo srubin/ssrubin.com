@@ -19,7 +19,7 @@
 	<meta name="author" content="Steve Rubin" />
 
 	<!-- Output DocPad produced meta elements -->
-	<meta http-equiv="X-Powered-By" content="DocPad v6.48.0"/>
+	<meta name="generator" content="DocPad v6.64.3" />
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,11 @@
 	<![endif]-->
 
 	<!-- Styles -->
-	<link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/styles/style.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/styles/solarized_light.css" />
+	<style >html.wait {
+	cursor: wait !important;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}</style><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="/styles/style.css" /><link  rel="stylesheet" href="/styles/solarized_light.css" />
 </head>
 <body>
 	<!-- Markup -->
@@ -52,22 +56,27 @@
         </div>
         <div class="row">
             <div class="span5">
-                <p>I am a second-year CS Ph.D. student at Berkeley. In 2011, I graduated
+                <p>I am a third-year CS Ph.D. student at Berkeley. In 2011, I graduated
 from <a href="http://www.williams.edu">Williams College</a> where I majored in both Computer Science and
 Mathematics. I&#39;m advised by <a href="http://vis.berkeley.edu/~maneesh/">Maneesh Agrawala</a>.</p>
 
             </div>
             <div class="span5">
-                <h2><a href="http://eecs.berkeley.edu/~srubin/posts.html">Latest blog posts</a></h2>
+                <h2><a href="/posts.html">Latest blog posts</a></h2>
+                
+                <p>
+                    <strong>11/13/2013</strong> &ndash;
+                    <a href="/posts/browsers-mturk-and-external-hits.html">Browsers, Mechanical Turk, and external HITs</a>
+                </p>
                 
                 <p>
                     <strong>4/25/2013</strong> &ndash;
-                    <a href="http://eecs.berkeley.edu/~srubin/posts/web-first.html">A web-first research methodology</a>
+                    <a href="/posts/web-first.html">A web-first research methodology</a>
                 </p>
                 
                 <p>
                     <strong>4/15/2013</strong> &ndash;
-                    <a href="http://eecs.berkeley.edu/~srubin/posts/redesign.html">Site redesign</a>
+                    <a href="/posts/redesign.html">Site redesign</a>
                 </p>
                 
             </div>
@@ -119,11 +128,11 @@ Mathematics. I&#39;m advised by <a href="http://vis.berkeley.edu/~maneesh/">Mane
     </div>
     <div class="span8">
         <p><img src="img/desk-fade.jpg" alt="The desk."></p>
-<p>I am broadly interested in HCI, music, information visualization, and
-design. In my first two years at Berkeley, I have worked on audio
-editing interfaces, crowdsourcing graphical perception studies
-(unpublished), bribe-reporting, a cup that knows what you&#39;re drinking,
-and chart-data extraction.</p>
+<p>I am broadly interested in HCI, music, media editing, information
+visualization, and design. In my first two years at Berkeley, I have
+worked on audio editing interfaces, crowdsourcing graphical perception
+studies (unpublished), bribe-reporting, a cup that knows what you&#39;re
+drinking, and chart-data extraction.</p>
 <p>My undergraduate senior thesis developed a methodology for visualizing
 large, highly symmetric communication graphs, such as process
 communication graphs from parallel programs.</p>
@@ -149,13 +158,8 @@ communication graphs from parallel programs.</p>
             
             Steve Rubin, Floraine Berthouzoz, Gautham Mysore, Wilmot Li, Maneesh Agrawala<br />
             ACM 26th Symposium on User Interface Software and Technology (To appear) (UIST 2013).
-            <p>Video and demo links to come</p>
-<!--- 
-[Youtube][1] | [Demo][2]
+            <p><a href="http://www.youtube.com/watch?v=RHtI4G5L31w">YouTube</a> | <a href="http://vis.berkeley.edu/papers/audiostories/results">Audio Results</a> | <a href="https://github.com/ucbvislab/radiotool">Code for audio construction/music retargeting</a></p>
 
-[1]: http://www.youtube.com/watch?v=ZMazbW8w9VI
-[2]: http://vis.berkeley.edu/papers/underscore/demo
---->
             
             <hr>
             
@@ -168,7 +172,7 @@ communication graphs from parallel programs.</p>
             
             Steve Rubin, Floraine Berthouzoz, Gautham Mysore, Wilmot Li, Maneesh Agrawala<br />
             ACM 25th Symposium on User Interface Software and Technology (UIST 2012).
-            <p><a href="http://www.youtube.com/watch?v=ZMazbW8w9VI">Youtube</a> | <a href="http://vis.berkeley.edu/papers/underscore/demo">Demo</a></p>
+            <p><a href="http://www.youtube.com/watch?v=ZMazbW8w9VI">Youtube</a> | <a href="http://vis.berkeley.edu/papers/underscore/demo">Demo</a> | <a href="https://github.com/ucbvislab/radiotool">Code for audio construction</a></p>
 
             
             <hr>
@@ -237,6 +241,25 @@ Duane Bailey in 2008.</p>
     </div>
 </div>
 
+<div class="row top-buffer" id="software">
+    <div class="span2">
+        <h2>Software</h2>
+    </div>
+    <div class="span8">
+        <p>I&#39;ve written a lot of software for my research. I&#39;m hoping to
+eventually release a lot of this code. Here&#39;s what I&#39;ve released so
+far:</p>
+<ul>
+<li><a href="https://github.com/ucbvislab/radiotool">radiotool</a> — a python library that aims to make it easy to
+create audio by piecing together bits of other audio files. This
+library was originally written to enable my research in audio
+editing user interfaces, but perhaps someone else might find it
+useful.</li>
+</ul>
+
+    </div>
+</div>
+
 <div class="row top-buffer" id="background">
     <div class="span2">
         <h2>Background</h2>
@@ -272,8 +295,9 @@ orthogonal to my current research interests.</p>
 <ul>
 <li><a href="http://srubin.github.io/vinyl-fm/">vinyl-fm</a> (scrobble vinyl records automatically)</li>
 <li><a href="http://www.eecs.berkeley.edu/~srubin/toys/lastday/">lastday</a> (cross-reference last.fm profile with black cab and daytrotter sessions)</li>
+<li><a href="http://github.com/srubin/microphone">microphone</a> (process streaming microphone input in the browser)</li>
 </ul>
-<p>and, as of very recently, snowboarding.</p>
+<p>and, as of the Winter of 2013, snowboarding.</p>
 
     </div>
 </div>
@@ -283,10 +307,12 @@ orthogonal to my current research interests.</p>
         <h2>Work</h2>
     </div>
     <div class="span8">
-        <h3>Graduate student researcher &mdash; UC Berkeley</h3>
-<p><em>Fall 2011, 2012. Spring 2012, 2013.</em></p>
+        <h3 id="graduate-student-researcher-mdash-uc-berkeley">Graduate student researcher &mdash; UC Berkeley</h3>
+<p><em>Fall 2011, 2012, 2013. Spring 2012, 2013.</em></p>
 <p><h3>Research intern &mdash; <a href="http://www.adobe.com/technology.html">Adobe Research</a></h3>
-<em>Summer 2012. Part-time in Fall 2012.</em></p>
+<em>Summer 2012, 2013, 2014. Part-time in Fall 2012.</em></p>
+<p><h3>Graduate student instructor &mdash; UC Berkeley</h3>
+<em>Spring 2014 &ndash; CS160 (User Interface Design, taught by Maneesh Agrawala and Björn Hartmann)</em></p>
 
     </div>
 </div>
@@ -301,8 +327,10 @@ program at Berkeley.</p>
 <ul>
 <li>CS 260 &mdash; Research Topics in HCI (Hartmann)</li>
 <li>CS 262a &mdash; Advanced Topics in Computer Systems (Brewer)</li>
+<li>CS 270 &mdash; Combinatorial Algorithms and Data Structures (Rao)</li>
 <li>CS 280 &mdash; Computer Vision (Malik)</li>
 <li>CS 281a &mdash; Statistical Learning Theory (Wainwright)</li>
+<li>CS 294-10 &mdash; Visualization (Agrawala)</li>
 <li>CS 294-84 &mdash; Interactive Device Design (Hartmann)</li>
 </ul>
 
@@ -326,7 +354,52 @@ project. More on this later.</p>
 	</div><!-- /container -->
 
 	<!-- Scripts -->
-	<script defer="defer"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/modernizr.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/js/bootstrap.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/jquery.imagesloaded.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/scripts/script.js"></script>
+	<script >(function(){
+	/* Did we just livereload? */
+var log = !!(localStorage && console && console.log && true);
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReload completed at', new Date())
+}
+
+/* Listen for the regenerated event and perform a reload of the page when the event occurs */
+var listen = function(){
+	var primus = new Primus('/docpad-livereload');
+	primus.on('data', function(data){
+		if ( data && data.message ) {
+			if ( data.message === 'generateBefore' ) {
+				if ( log ) {
+					console.log('LiveReload started at', new Date());
+				}
+				if ( typeof document.getElementsByTagName !== 'undefined' ) {
+	document.getElementsByTagName('html')[0].className += ' wait';
+}
+			}
+			else if ( data.message === 'generateAfter' ) {
+				if ( log ) {
+					localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+				}
+				document.location.reload();
+			}
+		}
+	});
+};
+	/* Inject socket into our page */
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = 'async';
+	t.src = '/primus/primus.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t, s);
+};
+	if ( typeof Primus !== 'undefined' ) {
+		listen();
+	} else {
+		inject();
+	}
+})();</script><script defer="defer"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script defer="defer"  src="/vendor/modernizr.js"></script><script defer="defer"  src="/vendor/twitter-bootstrap/js/bootstrap.min.js"></script><script defer="defer"  src="/vendor/jquery.imagesloaded.min.js"></script><script defer="defer"  src="/scripts/script.js"></script>
 	
 	<script type="text/javascript">
 
