@@ -7,11 +7,9 @@ link: "http://vis.berkeley.edu/papers/audiostories"
 date: "2013-10-08"
 ---
 
-Video and demo links to come
+[YouTube][1] | [Audio Results][2] | [Code for audio construction/music retargeting][3]
 
-<!--- 
-[Youtube][1] | [Demo][2]
+[1]: http://www.youtube.com/watch?v=RHtI4G5L31w
+[2]: http://vis.berkeley.edu/papers/audiostories/results
+[3]: https://github.com/ucbvislab/radiotool
 
-[1]: http://www.youtube.com/watch?v=ZMazbW8w9VI
-[2]: http://vis.berkeley.edu/papers/underscore/demo
---->

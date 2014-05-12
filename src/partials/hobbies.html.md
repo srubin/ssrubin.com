@@ -13,11 +13,13 @@ working out and hiking, working on toy software projects,
 
 * [vinyl-fm][vfm] (scrobble vinyl records automatically)
 * [lastday][lastday] (cross-reference last.fm profile with black cab and daytrotter sessions)
+* [microphone][microphone] (process streaming microphone input in the browser)
 
 
-and, as of very recently, snowboarding.
+and, as of the Winter of 2013, snowboarding.
 
 [lastfm]: http://last.fm/user/StevoX
 [pj]: http://peppersjam.com
 [vfm]: http://srubin.github.io/vinyl-fm/
 [lastday]: http://www.eecs.berkeley.edu/~srubin/toys/lastday/
+[microphone]: http://github.com/srubin/microphone

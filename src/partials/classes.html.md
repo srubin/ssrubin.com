@@ -3,6 +3,8 @@ program at Berkeley.
 
 * CS 260 &mdash; Research Topics in HCI (Hartmann)
 * CS 262a &mdash; Advanced Topics in Computer Systems (Brewer)
+* CS 270 &mdash; Combinatorial Algorithms and Data Structures (Rao)
 * CS 280 &mdash; Computer Vision (Malik)
 * CS 281a &mdash; Statistical Learning Theory (Wainwright)
+* CS 294-10 &mdash; Visualization (Agrawala)
 * CS 294-84 &mdash; Interactive Device Design (Hartmann)
