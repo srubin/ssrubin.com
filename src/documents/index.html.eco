@@ -156,6 +156,15 @@ layout: 'default'
     </div>
 </div>
 
+<div class="row top-buffer" id="work">
+    <div class="span2">
+        <h2>Service</h2>
+    </div>
+    <div class="span8">
+        <%- @partial('service') %>
+    </div>
+</div>
+
 <div class="row top-buffer" id="projects">
     <div class="span2">
         <h2>Projects</h2>
