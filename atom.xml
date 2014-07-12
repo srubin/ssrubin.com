@@ -3,13 +3,25 @@
 	<title>Steve Rubin's blog @ Berkeley EECS</title>
 	<link href="http://ssrubin.com/atom.xml" rel="self"/>
 	<link href="http://ssrubin.com"/>
-	<updated>2014-05-27T21:59:20.176Z</updated>
+	<updated>2014-07-12T21:49:43.009Z</updated>
 	<id>http://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
 		<email>srubin@cs.berkeley.edu</email>
 	</author>
 
+	
+		<entry>
+			<title>Browsers, Mechanical Turk, and external HITs</title>
+			<link href="http://ssrubin.com/posts/browsers-mturk-and-external-hits.html"/>
+			<updated>2013-11-13T08:00:00.000Z</updated>
+			<id>http://ssrubin.com/posts/browsers-mturk-and-external-hits.html</id>
+			<content type="html">&lt;p&gt;I had a lot of experiments running on &lt;a href=&quot;http://mturk.com&quot;&gt;Mechanical Turk&lt;/a&gt; this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&amp;#39;s server and embedded in Mechanical Turk via an &lt;code&gt;iframe&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I started posting tasks again recently, and my external HITs were no longer working. Chrome was blocking the content, because mturk is https and my external content was running on http. Thanks to this &lt;a href=&quot;http://wiki.bcs.rochester.edu/HlpLab/MTurkExperiments&quot;&gt;U Rochester site&lt;/a&gt; for steering me in the right direction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; If your external HITs mysteriously stop working on Mechanical Turk (or if it seems like many fewer people are doing your hits than before), blame it on  updated browsers and their &lt;s&gt;draconian&lt;/s&gt; new security settings, and start serving https content from your server.&lt;/p&gt;</content>
+		</entry>
 	
 		<entry>
 			<title>A web-first research methodology</title>
