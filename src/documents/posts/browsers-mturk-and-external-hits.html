@@ -1,0 +1,11 @@
+--- cson
+title: "Browsers, Mechanical Turk, and external HITs"
+layout: "post"
+date: "11/13/2013"
+---
+
+<p>I had a lot of experiments running on <a href="http://mturk.com">Mechanical Turk</a> this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&#39;s server and embedded in Mechanical Turk via an <code>iframe</code>.</p>
+
+<p>I started posting tasks again recently, and my external HITs were no longer working. Chrome was blocking the content, because mturk is https and my external content was running on http. Thanks to this <a href="http://wiki.bcs.rochester.edu/HlpLab/MTurkExperiments">U Rochester site</a> for steering me in the right direction.</p>
+
+<p><strong>TL;DR:</strong> If your external HITs mysteriously stop working on Mechanical Turk (or if it seems like many fewer people are doing your hits than before), blame it on  updated browsers and their <s>draconian</s> new security settings, and start serving https content from your server.</p>
