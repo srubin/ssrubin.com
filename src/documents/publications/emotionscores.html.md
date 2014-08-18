@@ -3,7 +3,8 @@ title: "Generating Emotionally Relevant Musical Scores for Audio Stories"
 venueShort: "UIST 2014"
 venueFull: "ACM 27th Symposium on User Interface Software and Technology"
 authors: "Steve Rubin, Maneesh Agrawala"
-link: "http://vis.berkeley.edu/papers/emotionscores"
+#link: "http://vis.berkeley.edu/papers/emotionscores"
+link: "#"
 date: "2014-10-07"
 ---
 
