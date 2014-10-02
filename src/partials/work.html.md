@@ -1,5 +1,5 @@
 ### Graduate student researcher &mdash; UC Berkeley
-*Fall 2011, 2012, 2013. Spring 2012, 2013.*
+*Fall 2011, 2012, 2013, 2014. Spring 2012, 2013.*
 
 <h3>Research intern &mdash; [Adobe Research][adobe]</h3>
 *Summer 2012, 2013, 2014. Part-time in Fall 2012.*

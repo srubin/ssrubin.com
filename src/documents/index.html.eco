@@ -42,7 +42,6 @@ layout: 'default'
             <li><a href="#hobbies">hobbies</a></li>
             <li><a href="#work">work</a></li>
             <li><a href="#classes">classes</a></li>
-            <li><a href="#projects">projects</a></li>
         </ul>
     </div>
 </div>
@@ -165,14 +164,7 @@ layout: 'default'
     </div>
 </div>
 
-<div class="row top-buffer" id="projects">
-    <div class="span2">
-        <h2>Projects</h2>
-    </div>
-    <div class="span8">
-        <%- @partial('classprojects') %>
-    </div>
-</div>
+
 
 </div> <!-- #maincontent -->
 
