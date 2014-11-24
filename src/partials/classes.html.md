@@ -8,3 +8,4 @@ program at Berkeley.
 * CS 281a &mdash; Statistical Learning Theory (Wainwright)
 * CS 294-10 &mdash; Visualization (Agrawala)
 * CS 294-84 &mdash; Interactive Device Design (Hartmann)
+* STAT 239a &mdash; The Statistics of Causal Inference in the Social Sciences (Sekhon)
