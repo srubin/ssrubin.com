@@ -30,7 +30,11 @@
 	<![endif]-->
 
 	<!-- Styles -->
-	<link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/styles/style.css" /><link  rel="stylesheet" href="http://eecs.berkeley.edu/~srubin/styles/solarized_light.css" />
+	<style >html.wait {
+	cursor: wait !important;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}</style><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="/styles/style.css" /><link  rel="stylesheet" href="/styles/solarized_light.css" />
 </head>
 <body>
 	<!-- Markup -->
@@ -43,7 +47,7 @@
     </div>
     <div class="span4">
         <p class="text-right">
-            <a href="http://eecs.berkeley.edu/~srubin/atom.xml"><img src="img/feed.png" /> Feed</a> | <a href="http://eecs.berkeley.edu/~srubin/">Home</a>            
+            <a href="/atom.xml"><img src="img/feed.png" /> Feed</a> | <a href="/">Home</a>            
         </p>
     </div>
 </div>
@@ -57,7 +61,7 @@
         <h3>11/13/2013</h3>
     </div>
     <div class="span8">
-        <h2><a href="http://eecs.berkeley.edu/~srubin/posts/browsers-mturk-and-external-hits.html">Browsers, Mechanical Turk, and external HITs</a></h2>
+        <h2><a href="/posts/browsers-mturk-and-external-hits.html">Browsers, Mechanical Turk, and external HITs</a></h2>
         <p>I had a lot of experiments running on <a href="http://mturk.com">Mechanical Turk</a> this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&#39;s server and embedded in Mechanical Turk via an <code>iframe</code>.</p>
 
 <p>I started posting tasks again recently, and my external HITs were no longer working. Chrome was blocking the content, because mturk is https and my external content was running on http. Thanks to this <a href="http://wiki.bcs.rochester.edu/HlpLab/MTurkExperiments">U Rochester site</a> for steering me in the right direction.</p>
@@ -71,7 +75,7 @@
         <h3>4/25/2013</h3>
     </div>
     <div class="span8">
-        <h2><a href="http://eecs.berkeley.edu/~srubin/posts/web-first.html">A web-first research methodology</a></h2>
+        <h2><a href="/posts/web-first.html">A web-first research methodology</a></h2>
         <p>When I started grad school in the Fall of 2011, I didn&#39;t consider
 myself to be an excellent programmer or a <a href="http://news.ycombinator.com">hacker</a> or anything
 like that. On the other hand, I did consider myself to be an
@@ -141,7 +145,7 @@ these things as they&#39;re working on projects.</p>
         <h3>4/15/2013</h3>
     </div>
     <div class="span8">
-        <h2><a href="http://eecs.berkeley.edu/~srubin/posts/redesign.html">Site redesign</a></h2>
+        <h2><a href="/posts/redesign.html">Site redesign</a></h2>
         <p>I&#39;m working on an (admittedly simple) redesign of my site. I may
 change things significantly from this form because</p>
 <ol>
@@ -165,7 +169,52 @@ now than I did back then. Probably.</p>
 	</div><!-- /container -->
 
 	<!-- Scripts -->
-	<script defer="defer"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/modernizr.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/twitter-bootstrap/js/bootstrap.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/vendor/jquery.imagesloaded.min.js"></script><script defer="defer"  src="http://eecs.berkeley.edu/~srubin/scripts/script.js"></script>
+	<script >(function(){
+	/* Did we just livereload? */
+var log = !!(localStorage && console && console.log && true);
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReload completed at', new Date())
+}
+
+/* Listen for the regenerated event and perform a reload of the page when the event occurs */
+var listen = function(){
+	var primus = new Primus('/docpad-livereload');
+	primus.on('data', function(data){
+		if ( data && data.message ) {
+			if ( data.message === 'generateBefore' ) {
+				if ( log ) {
+					console.log('LiveReload started at', new Date());
+				}
+				if ( typeof document.getElementsByTagName !== 'undefined' ) {
+	document.getElementsByTagName('html')[0].className += ' wait';
+}
+			}
+			else if ( data.message === 'generateAfter' ) {
+				if ( log ) {
+					localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+				}
+				document.location.reload();
+			}
+		}
+	});
+};
+	/* Inject socket into our page */
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = 'async';
+	t.src = '/primus/primus.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t, s);
+};
+	if ( typeof Primus !== 'undefined' ) {
+		listen();
+	} else {
+		inject();
+	}
+})();</script><script defer="defer"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script defer="defer"  src="/vendor/modernizr.js"></script><script defer="defer"  src="/vendor/twitter-bootstrap/js/bootstrap.min.js"></script><script defer="defer"  src="/vendor/jquery.imagesloaded.min.js"></script><script defer="defer"  src="/scripts/script.js"></script>
 	
 	<script type="text/javascript">
 
