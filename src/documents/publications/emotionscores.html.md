@@ -11,5 +11,5 @@ date: "2014-10-07"
 
 [1]: https://www.youtube.com/watch?v=hrHprLYDkN4
 [2]: http://vis.berkeley.edu/papers/emotionscores/results
-[3]: https://github.com/ucbvislab/radiotool/tree/constraints
+[3]: https://github.com/ucbvislab/radiotool
 
