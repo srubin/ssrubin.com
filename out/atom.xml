@@ -3,7 +3,7 @@
 	<title>Steve Rubin's blog @ Berkeley EECS</title>
 	<link href="http://ssrubin.com/atom.xml" rel="self"/>
 	<link href="http://ssrubin.com"/>
-	<updated>2015-01-29T18:33:21.192Z</updated>
+	<updated>2015-01-29T18:35:06.287Z</updated>
 	<id>http://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
@@ -12,7 +12,7 @@
 
 	
 		<entry>
-			<title>speecheditor: and audio story editing tool</title>
+			<title>speecheditor: an audio story editing tool</title>
 			<link href="http://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html"/>
 			<updated>2015-01-29T08:00:00.000Z</updated>
 			<id>http://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html</id>

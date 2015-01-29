@@ -1,5 +1,5 @@
 --- cson
-title: "speecheditor: and audio story editing tool"
+title: "speecheditor: an audio story editing tool"
 layout: "post"
 date: "1/29/2015"
 ---
