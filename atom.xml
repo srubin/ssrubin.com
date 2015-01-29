@@ -3,13 +3,23 @@
 	<title>Steve Rubin's blog @ Berkeley EECS</title>
 	<link href="http://ssrubin.com/atom.xml" rel="self"/>
 	<link href="http://ssrubin.com"/>
-	<updated>2015-01-29T18:21:28.506Z</updated>
+	<updated>2015-01-29T18:33:21.192Z</updated>
 	<id>http://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
 		<email>srubin@cs.berkeley.edu</email>
 	</author>
 
+	
+		<entry>
+			<title>speecheditor: and audio story editing tool</title>
+			<link href="http://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html"/>
+			<updated>2015-01-29T08:00:00.000Z</updated>
+			<id>http://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html</id>
+			<content type="html">&lt;p&gt;Today we&amp;#39;ve released our &lt;a href=&quot;https://ucbvislab.github.io/speecheditor&quot;&gt;speecheditor&lt;/a&gt;, a web app for editing and adding musical scores to audio stories. Instead of editing speech using waveforms, the speecheditor allows you to edit audio with text, like a word processor. Likewise, it allows users to easily loop musical tracks and add &lt;a href=&quot;http://vis.berkeley.edu/papers/underscore&quot;&gt;musical underlays&lt;/a&gt; à la This American Life. The speecheditor is described in detail in our paper, &lt;a href=&quot;http://vis.berkeley.edu/papers/audiostories&quot;&gt;&amp;quot;Content-based Tools for Editing Audio Stories.&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The speecheditor is research code. To that extent, this release is a polished prototype &amp;ndash; there are bound to be bugs that arise (please file those on the github issues page!) but we&amp;#39;ve had a lot of fun editing audio stories with this system and we believe it&amp;#39;s a powerful paradigm for DAWs of the future. We&amp;#39;re excited to have other creators try it out!&lt;/p&gt;
+</content>
+		</entry>
 	
 		<entry>
 			<title>Browsers, Mechanical Turk, and external HITs</title>
