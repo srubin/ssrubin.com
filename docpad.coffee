@@ -12,7 +12,7 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://ssrubin.com"
+			url: "https://ssrubin.com"
 
 			root: ""
 
