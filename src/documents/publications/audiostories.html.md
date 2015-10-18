@@ -2,7 +2,7 @@
 title: "Content-Based Tools for Editing Audio Stories"
 venueShort: "UIST 2013"
 venueFull: "ACM 26th Symposium on User Interface Software and Technology"
-authors: "Steve Rubin, Floraine Berthouzoz, Gautham Mysore, Wilmot Li, Maneesh Agrawala"
+authors: "Steve Rubin, Floraine Berthouzoz, Gautham J. Mysore, Wilmot Li, Maneesh Agrawala"
 link: "http://vis.berkeley.edu/papers/audiostories"
 date: "2013-10-08"
 ---

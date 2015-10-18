@@ -4,7 +4,7 @@ date: "2009-03-04"
 venueFull: "The 40th ACM Technical Symposium on Computer Science Education"
 venueShort: "SIGCSE 2009"
 authors: "Steven S. Rubin"
-oldPub: true
+oldPub: false
 ---
 
 Finalist (top 5) in the Student Research Competition. This work was

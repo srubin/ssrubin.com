@@ -1,4 +1,4 @@
-![Williams College commencement, June 2011.](img/williams-fade.jpg)
+<img src="img/williams.jpg" alt="Williams College commencement, June 2011" class="fadedTop" />
 
 At Williams I served as president and root of [Williams Students
 Online][wso], competed on and co-captained the track and field team,

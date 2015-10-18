@@ -1,4 +1,4 @@
-![My first trip to Tahoe (Squaw Valley)](img/snowboarding-fade.jpg)
+<img src="img/glacier-national-park.jpg" alt="Scenic Point, Glacier National Park, July 2014" class="fadedTop" />
 
 My hobbies include listening to music and going to shows
 
@@ -7,16 +7,16 @@ My hobbies include listening to music and going to shows
 
 watching professional (and occasionally college) sports
 
-* Go Steelers, Ephs, Bears, Lakers, Pirates, Sixers, Orange, and Tiger
+* Go Pirates, Ephs, Bears, Lakers, Sixers, Orange, and Tiger (and Warriors on bandwagony days)
 
-working out and hiking, working on toy software projects,
+working on toy software projects,
 
 * [vinyl-fm][vfm] (scrobble vinyl records automatically)
 * [lastday][lastday] (cross-reference last.fm profile with black cab and daytrotter sessions)
 * [microphone][microphone] (process streaming microphone input in the browser)
 
 
-and, as of the Winter of 2013, snowboarding.
+hiking, bouldering, and snowboarding.
 
 [lastfm]: http://last.fm/user/StevoX
 [pj]: http://peppersjam.com

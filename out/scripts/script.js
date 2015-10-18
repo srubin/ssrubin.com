@@ -7,6 +7,7 @@
       console.log("pulling down");
       console.log("p height", $(this).parent().height());
       console.log("height", $(this).height());
+      console.log("height", $(this));
       if ($(window).width() > 767) {
         return $(this).css('margin-top', $(this).parent().height() - $(this).height());
       }
