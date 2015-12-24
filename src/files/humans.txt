@@ -3,7 +3,7 @@
 
 
 /* TEAM */
-  Site: Steve Rubin @ Berkeley EECS
+  Site: Steve Rubin
   Twitter: @revestubin
   Location: Berkeley, CA
 

@@ -23,7 +23,7 @@ docpadConfig = {
 			]
 
 			# The default title of our website
-			title: "Steve Rubin @ Berkeley EECS"
+			title: "Steve Rubin"
 
 			# The website description (for SEO)
 			description: """
@@ -76,7 +76,7 @@ docpadConfig = {
 		deploy:
 			templateData:
 				site:
-					root: "//eecs.berkeley.edu/~srubin"
+					root: "//ssrubin.com"
 
 		development:
 			templateData:

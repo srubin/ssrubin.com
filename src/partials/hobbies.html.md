@@ -21,5 +21,5 @@ hiking, bouldering, and snowboarding.
 [lastfm]: http://last.fm/user/StevoX
 [pj]: http://peppersjam.com
 [vfm]: http://srubin.github.io/vinyl-fm/
-[lastday]: http://www.eecs.berkeley.edu/~srubin/toys/lastday/
+[lastday]: http://ssrubin.com/toys/lastday/
 [microphone]: http://github.com/srubin/microphone
