@@ -7,7 +7,7 @@ My hobbies include listening to music and going to shows
 
 watching professional (and occasionally college) sports
 
-* Go Pirates, Ephs, Bears, Lakers, Sixers, Orange, and Tiger (and Warriors on bandwagony days)
+* Go Pirates, Warriors, Ephs, Bears, Orange, and Tiger.
 
 working on toy software projects,
 

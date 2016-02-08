@@ -3,7 +3,7 @@
 	<title>Steve Rubin's blog</title>
 	<link href="https://ssrubin.com/atom.xml" rel="self"/>
 	<link href="https://ssrubin.com"/>
-	<updated>2015-12-24T20:28:50.524Z</updated>
+	<updated>2016-02-08T18:38:53.063Z</updated>
 	<id>https://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
@@ -14,7 +14,7 @@
 		<entry>
 			<title>speecheditor: an audio story editing tool</title>
 			<link href="https://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html"/>
-			<updated>2015-01-29T05:00:00.000Z</updated>
+			<updated>2015-01-29T08:00:00.000Z</updated>
 			<id>https://ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html</id>
 			<content type="html">&lt;p&gt;Today we&amp;#39;ve released our &lt;a href=&quot;https://ucbvislab.github.io/speecheditor&quot;&gt;speecheditor&lt;/a&gt;, a web app for editing and adding musical scores to audio stories. Instead of editing speech using waveforms, the speecheditor allows you to edit audio with text, like a word processor. Likewise, it allows users to easily loop musical tracks and add &lt;a href=&quot;http://vis.berkeley.edu/papers/underscore&quot;&gt;musical underlays&lt;/a&gt; à la This American Life. The speecheditor is described in detail in our paper, &lt;a href=&quot;http://vis.berkeley.edu/papers/audiostories&quot;&gt;&amp;quot;Content-based Tools for Editing Audio Stories.&amp;quot;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The speecheditor is research code. To that extent, this release is a polished prototype &amp;ndash; there are bound to be bugs that arise (please file those on the github issues page!) but we&amp;#39;ve had a lot of fun editing audio stories with this system and we believe it&amp;#39;s a powerful paradigm for DAWs of the future. We&amp;#39;re excited to have other creators try it out!&lt;/p&gt;
@@ -24,7 +24,7 @@
 		<entry>
 			<title>Browsers, Mechanical Turk, and external HITs</title>
 			<link href="https://ssrubin.com/posts/browsers-mturk-and-external-hits.html"/>
-			<updated>2013-11-13T05:00:00.000Z</updated>
+			<updated>2013-11-13T08:00:00.000Z</updated>
 			<id>https://ssrubin.com/posts/browsers-mturk-and-external-hits.html</id>
 			<content type="html">&lt;p&gt;I had a lot of experiments running on &lt;a href=&quot;http://mturk.com&quot;&gt;Mechanical Turk&lt;/a&gt; this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&amp;#39;s server and embedded in Mechanical Turk via an &lt;code&gt;iframe&lt;/code&gt;.&lt;/p&gt;
 
@@ -36,7 +36,7 @@
 		<entry>
 			<title>A web-first research methodology</title>
 			<link href="https://ssrubin.com/posts/web-first.html"/>
-			<updated>2013-04-25T04:00:00.000Z</updated>
+			<updated>2013-04-25T07:00:00.000Z</updated>
 			<id>https://ssrubin.com/posts/web-first.html</id>
 			<content type="html">&lt;p&gt;When I started grad school in the Fall of 2011, I didn&amp;#39;t consider
 myself to be an excellent programmer or a &lt;a href=&quot;http://news.ycombinator.com&quot;&gt;hacker&lt;/a&gt; or anything
@@ -104,7 +104,7 @@ these things as they&amp;#39;re working on projects.&lt;/p&gt;
 		<entry>
 			<title>Site redesign</title>
 			<link href="https://ssrubin.com/posts/redesign.html"/>
-			<updated>2013-04-15T04:00:00.000Z</updated>
+			<updated>2013-04-15T07:00:00.000Z</updated>
 			<id>https://ssrubin.com/posts/redesign.html</id>
 			<content type="html">&lt;p&gt;I&amp;#39;m working on an (admittedly simple) redesign of my site. I may
 change things significantly from this form because&lt;/p&gt;
