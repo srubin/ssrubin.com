@@ -41,6 +41,9 @@ docpadConfig = {
 			# The website author's email
 			email: "srubin@cs.berkeley.edu"
 
+			services:
+				disqus: 'ssrubin'
+
 		# -----------------------------
 		# Helper Functions
 
@@ -82,6 +85,8 @@ docpadConfig = {
 			templateData:
 				site:
 					root: ""
+					services:
+						serviceToDisable: false
 
 	# =================================
 	# Collections
