@@ -13,7 +13,7 @@
 
 
 	<!-- Our site title and description -->
-	<title>Steve Rubin</title>
+	<title>A fast &amp; powerful iTunes replacement with mpd, ncmpcpp, beets, and Alfred | Steve Rubin</title>
 	<meta name="description" content="Personal website of Steve Rubin, PhD student at UC Berkeley." />
 	<meta name="keywords" content="steve, rubin, steve rubin, berkeley, eecs, uc berkeley, cs, computer science, hci, music" />
 	<meta name="author" content="Steve Rubin" />
@@ -38,26 +38,23 @@
 	<div class="container">
 		<section id="content" class="content">
 			<div class="row">
-    <div class="offset2 span6">
-        <h1>Posts</h1>
+    <div class="span2 text-right">
+        <h3>6/25/2016</h3>
+    </div>
+    <div class="span6">
+        <h1><em class="muted">#</em> <a href="//ssrubin.com/posts/music-library-with-mpd-ncmpcpp-beets.html">A fast & powerful iTunes replacement with mpd, ncmpcpp, beets, and Alfred</a></h1>
     </div>
     <div class="span4">
         <p class="text-right">
-            <a href="//ssrubin.com/atom.xml"><img src="img/feed.png" /> Feed</a> | <a href="//ssrubin.com/">Home</a>            
+            <a href="//ssrubin.com/posts.html">Posts</a> | <a href="//ssrubin.com/">Home</a>          
         </p>
     </div>
 </div>
 
 <hr>
 
-
-
 <div class="row">
-    <div class="span2 text-right">
-        <h3>6/25/2016</h3>
-    </div>
-    <div class="span8">
-        <h2><a href="//ssrubin.com/posts/music-library-with-mpd-ncmpcpp-beets.html">A fast & powerful iTunes replacement with mpd, ncmpcpp, beets, and Alfred</a></h2>
+    <div class="offset2 span8">
         <p>I used Windows until 2009, and I was used to disliking iTunes. I figured that Apple was doing the minimum amount of work required to support iPods on Windows. After switching to OS X (macOS), I realized that iTunes just isn&#39;t meant to be <em>just</em> a music player and organizer. It does those things, but it&#39;s also a tool for syncing media to your phone, a streaming music service, and a weird social network. It&#39;s a music store, a book store, a video store, an app store, a podcast store, a music video store, an audiobook store, and whatever iTunes U is.</p>
 <p>All of these functions get in the way of the features that I care most about and use on a daily basis: organizing and playing music. The more recent iTunes redesign is pretty (it&#39;s hard to dislike the auto-selected colors for the album view) but overall, the software is a bloated usability tire fire.</p>
 <p><img src="../img/musiclibrary/iTunes.png" alt="iTunes automatic color-matching for albums looks nice"></p>
@@ -200,126 +197,39 @@ audio_output {
     </div>
 </div>
 
-<div class="row">
-    <div class="span2 text-right">
-        <h3>1/29/2015</h3>
-    </div>
-    <div class="span8">
-        <h2><a href="//ssrubin.com/posts/speecheditor-an-audio-story-editing-tool.html">speecheditor: an audio story editing tool</a></h2>
-        <p>Today we&#39;ve released our <a href="https://ucbvislab.github.io/speecheditor">speecheditor</a>, a web app for editing and adding musical scores to audio stories. Instead of editing speech using waveforms, the speecheditor allows you to edit audio with text, like a word processor. Likewise, it allows users to easily loop musical tracks and add <a href="http://vis.berkeley.edu/papers/underscore">musical underlays</a> à la This American Life. The speecheditor is described in detail in our paper, <a href="http://vis.berkeley.edu/papers/audiostories">&quot;Content-based Tools for Editing Audio Stories.&quot;</a></p>
-<p>The speecheditor is research code. To that extent, this release is a polished prototype &ndash; there are bound to be bugs that arise (please file those on the github issues page!) but we&#39;ve had a lot of fun editing audio stories with this system and we believe it&#39;s a powerful paradigm for DAWs of the future. We&#39;re excited to have other creators try it out!</p>
-
-    </div>
-</div>
+<hr>
 
 <div class="row">
-    <div class="span2 text-right">
-        <h3>11/13/2013</h3>
-    </div>
-    <div class="span8">
-        <h2><a href="//ssrubin.com/posts/browsers-mturk-and-external-hits.html">Browsers, Mechanical Turk, and external HITs</a></h2>
-        <p>I had a lot of experiments running on <a href="http://mturk.com">Mechanical Turk</a> this summer as ExternalHITs. In MTurk parlance, this means that the tasks were hosted on my research group&#39;s server and embedded in Mechanical Turk via an <code>iframe</code>.</p>
-
-<p>I started posting tasks again recently, and my external HITs were no longer working. Chrome was blocking the content, because mturk is https and my external content was running on http. Thanks to this <a href="http://wiki.bcs.rochester.edu/HlpLab/MTurkExperiments">U Rochester site</a> for steering me in the right direction.</p>
-
-<p><strong>TL;DR:</strong> If your external HITs mysteriously stop working on Mechanical Turk (or if it seems like many fewer people are doing your hits than before), blame it on  updated browsers and their <s>draconian</s> new security settings, and start serving https content from your server.</p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span2 text-right">
-        <h3>4/25/2013</h3>
-    </div>
-    <div class="span8">
-        <h2><a href="//ssrubin.com/posts/web-first.html">A web-first research methodology</a></h2>
-        <p>When I started grad school in the Fall of 2011, I didn&#39;t consider
-myself to be an excellent programmer or a <a href="http://news.ycombinator.com">hacker</a> or anything
-like that. On the other hand, I did consider myself to be an
-exceptional googler and <a href="http://hci.stanford.edu/research/opportunistic/">tinkerer</a>; I could usually scrounge
-up a solution to my current programming problem without much
-difficulty.</p>
-<p>My first research project in grad school involved a javascript-heavy
-experiment that we were going to deploy to Mechanical Turk. I had done
-my fair share of tinkering with client-side (HTML/CSS) and server-side
-(Rails) web development, but I had always avoided javascript. No, I
-don&#39;t know why.</p>
-<p>Eager to show my collaborators that I was capable of writing code that
-worked and writing it quickly, I dove into javascript&#39;s prototypical
-deep end. My code, hideous as it was, worked fine and allowed for
-rapid iteration.</p>
-<p>Just to expand on the aforementioned hideousness, we&#39;re talking a
-whole mess of global variables and inline HTML:</p>
-<pre class="highlight"><code class="hljs javascript">$(<span class="hljs-string">'body'</span>).prepend(<span class="hljs-string">'&lt;span id="codespan"&gt;&lt;strong&gt;Enter your code: &lt;/strong&gt;&lt;input style="display: inline" id="turkcode" type="text" name="turkcode"&gt;&lt;/input&gt;&lt;button id="codebutton"&gt;Submit&lt;/button&gt;&lt;/span&gt;'</span>);
-</code></pre>
-<p>Oh dear.</p>
-<p>My intention isn&#39;t to call out how bad I was at javascript a year and
-half ago. I was inspired by the process. That project necessitated
-that I build a web app, but my projects since then have been more
-flexible. But all of my (and your, I&#39;m guessing) research
-collaborators have a somewhat unbelievable number of devices that can
-access the web, so ideally, my research should live on the web instead
-of in some C++ or Java code that may not ever be compiled on anyone
-else&#39;s machine.</p>
-<p>This idea of web-first research manifests itself it a number of ways:</p>
-<ul>
-<li>Whenever I&#39;m building an interface, I will try to make it a web app
-as opposed to a native GUI.<ul>
-<li>Remote collaborators can see what I&#39;m working on without
-downloading and compiling code, getting the proper libraries
-installed, debugging platform-specific issues, and so on.</li>
-<li>Everyone wants scientists to release their code. Once published,
-web-based projects are easy to disseminate because they&#39;re already
-running in-browser.</li>
-</ul>
-</li>
-<li>For each project, I maintain a private website to track progress,
-results, and ideas. If someone misses a meeting, they can just check
-the site to see what&#39;s going on.</li>
-<li>I like learning new programming languages and frameworks. The web is
-constantly evolving, so I have the opportunity to learn and extend
-tons of cool web-related technologies and tools. So far in grad
-school: <a href="http://webpy.org/">web.py</a>, <a href="http://flask.pocoo.org/">flask</a>, <a href="https://www.djangoproject.com/">django</a>,
-<a href="http://nodejs.org/">node.js</a>, <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>, <a href="http://dojotoolkit.org/">dojo</a>, <a href="http://jquery.com/">jQuery</a>,
-<a href="http://jqueryui.com/">jQuery UI</a>, <a href="http://underscorejs.org/">underscore</a>, <a href="http://coffeescript.org/">coffeescript</a>,
-<a href="http://docpad.org">docpad</a> and many more. Being able to learn these tools while
-I&#39;m doing my research is a highly-motivational mixture of work and
-play.</li>
-<li>Rapid iteration for the web is, well, rapid. This applies to high-
-level languages in general. Sure, algorithms are going to run a bit
-slower, but only invest the time in highly optimized implementations
-if your research depends on it.</li>
-</ul>
-<p>Web-first research doesn&#39;t make sense for all areas of research, but I
-encourage other graduate students (HCI and otherwise) to think about
-these things as they&#39;re working on projects.</p>
-
+    <div class="offset2 span8">
+        <div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'ssrubin';
+		window.disqus_developer = '1';
+		window.disqus_url = 'https://ssrubin.com/posts/music-library-with-mpd-ncmpcpp-beets.html';
+		window.disqus_identifier = 'posts-music-library-with-mpd-ncmpcpp-beets';
+		window.disqus_title = 'A fast & powerful iTunes replacement with mpd, ncmpcpp, beets, and Alfred';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
 </div>
-
-<div class="row">
-    <div class="span2 text-right">
-        <h3>4/15/2013</h3>
-    </div>
-    <div class="span8">
-        <h2><a href="//ssrubin.com/posts/redesign.html">Site redesign</a></h2>
-        <p>I&#39;m working on an (admittedly simple) redesign of my site. I may
-change things significantly from this form because</p>
-<ol>
-<li>I am indecisive, and</li>
-<li>This is fun.</li>
-</ol>
-<p>One obvious difference is that there is a section here for &quot;posts.&quot;
-I&#39;m not sure exactly what&#39;s going to become of this section. I might
-end up scrapping it in the future. But for now, it&#39;s here. I have a
-soft spot for blogging. When I first purchased this domain when I was
-in 7th grade, I wrote a blog that was horribly written and often
-banal, but my friends kept reading, so I kept writing.</p>
-<p>As a graduate student, I probably have more interesting things to say
-now than I did back then. Probably.</p>
-
-    </div>
-</div>
-
 		</section>
 
 	</div><!-- /container -->

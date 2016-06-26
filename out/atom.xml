@@ -3,13 +3,159 @@
 	<title>Steve Rubin's blog</title>
 	<link href="https://ssrubin.com/atom.xml" rel="self"/>
 	<link href="https://ssrubin.com"/>
-	<updated>2016-02-08T18:38:53.063Z</updated>
+	<updated>2016-06-26T08:56:29.970Z</updated>
 	<id>https://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
 		<email>srubin@cs.berkeley.edu</email>
 	</author>
 
+	
+		<entry>
+			<title>A fast &amp; powerful iTunes replacement with mpd, ncmpcpp, beets, and Alfred</title>
+			<link href="https://ssrubin.com/posts/music-library-with-mpd-ncmpcpp-beets.html"/>
+			<updated>2016-06-25T07:00:00.000Z</updated>
+			<id>https://ssrubin.com/posts/music-library-with-mpd-ncmpcpp-beets.html</id>
+			<content type="html">&lt;p&gt;I used Windows until 2009, and I was used to disliking iTunes. I figured that Apple was doing the minimum amount of work required to support iPods on Windows. After switching to OS X (macOS), I realized that iTunes just isn&amp;#39;t meant to be &lt;em&gt;just&lt;/em&gt; a music player and organizer. It does those things, but it&amp;#39;s also a tool for syncing media to your phone, a streaming music service, and a weird social network. It&amp;#39;s a music store, a book store, a video store, an app store, a podcast store, a music video store, an audiobook store, and whatever iTunes U is.&lt;/p&gt;
+&lt;p&gt;All of these functions get in the way of the features that I care most about and use on a daily basis: organizing and playing music. The more recent iTunes redesign is pretty (it&amp;#39;s hard to dislike the auto-selected colors for the album view) but overall, the software is a bloated usability tire fire.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/iTunes.png&quot; alt=&quot;iTunes automatic color-matching for albums looks nice&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;#39;ve pieced together a fast and powerful replacement to iTunes using a bunch of open source software (mpd, ncmpcpp, and beets) and my favorite do-everything macOS assistant, Alfred. This all presupposes that you, like me, still care about maintaining a collection of digital music files. Otherwise, just get Spotify and move along.&lt;/p&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;This guide assumes you can comfortably edit files, create folders, and run commands in Terminal.&lt;/p&gt;
+&lt;p&gt;To install the open source software I reference here, install &lt;a href=&quot;http://brew.sh&quot;&gt;homebrew&lt;/a&gt;. Open Terminal and run:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs sh&quot;&gt;/usr/bin/ruby &lt;span class=&quot;hljs-operator&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;&quot;&lt;span class=&quot;hljs-variable&quot;&gt;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;library-management&quot;&gt;Library management&lt;/h2&gt;
+&lt;p&gt;It&amp;#39;s hard to maintain a clean library of digital music. When you&amp;#39;re ripping your own CDs you generally get accurate tag metadata, but we&amp;#39;ve all downloaded albums that are mistagged or untagged. I&amp;#39;m not even talking about illegal downloads: I&amp;#39;ve purchased albums from band and record label websites that have no id3 tags at all.&lt;/p&gt;
+&lt;p&gt;(Beets)[&lt;a href=&quot;http://beets.io&quot;&gt;http://beets.io&lt;/a&gt;] is an open source music library management tool. It takes care of all the tag gobbledy-gook that we need. To install it, enter the following commands in Terminal:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;brew install python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;pip install beets
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, create a folder where you want to keep all of your music. On my computer, I created a folder called &lt;code&gt;beets&lt;/code&gt; in &lt;code&gt;~/Music&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/folder.png&quot; alt=&quot;My beets music folder&quot;&gt;&lt;/p&gt;
+&lt;p&gt;We need to configure beets. Create or edit &lt;code&gt;~/.config/beets/config.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs groovy&quot;&gt;&lt;span class=&quot;hljs-string&quot;&gt;directory:&lt;/span&gt; &lt;span class=&quot;hljs-regexp&quot;&gt;~/Music/&lt;/span&gt;beets                   # Where does the music live?
+library: &lt;span class=&quot;hljs-regexp&quot;&gt;~/Dropbox/&lt;/span&gt;beets/musiclibrary.blb  # Where does the beets database live?
+import:
+&lt;span class=&quot;hljs-label&quot;&gt;    move:&lt;/span&gt; yes                              # Move your files to &lt;span class=&quot;hljs-regexp&quot;&gt;~/Music/&lt;/span&gt;beets after &lt;span class=&quot;hljs-keyword&quot;&gt;import&lt;/span&gt;
+&lt;span class=&quot;hljs-string&quot;&gt;plugins:&lt;/span&gt; lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart
+&lt;span class=&quot;hljs-string&quot;&gt;embedart:&lt;/span&gt;
+&lt;span class=&quot;hljs-label&quot;&gt;    auto:&lt;/span&gt; yes                              # Embed album art &lt;span class=&quot;hljs-keyword&quot;&gt;in&lt;/span&gt; the music files
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To add an album to your new beets music library, run the following in Terminal:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;beet import ~/Downloads/Car\ Seat\ Headrest\ -\ Teens\ Of\ Denial
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Beets will match your album to an online database and correct its tags. If beets is unsure about what the album is, you&amp;#39;ll get a prompt to verify the information. You can also add a bunch of albums all at once, e.g.:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;beet import ~/Music/iTunes/iTunes\ Media
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;playback&quot;&gt;Playback&lt;/h2&gt;
+&lt;p&gt;Once you have a perfectly organized and tagged music library, you&amp;#39;ll probably want some way to play it. This is where mpd comes in. &lt;a href=&quot;https://www.musicpd.org&quot;&gt;Mpd&lt;/a&gt; is a piece of software that runs in the background and plays music. It&amp;#39;s fast and lightweight-- you&amp;#39;re certainly not going to miss iTunes in that department.&lt;/p&gt;
+&lt;p&gt;First install mpd:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;brew install mpd mpc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Homebrew will let you know that mpd successfully installed, and give you a line to copy/paste into Terminal that will automatically start mpd when you start your computer. Do that.&lt;/p&gt;
+&lt;p&gt;Then create and edit &lt;code&gt;~/.mpdconf&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs undefined&quot;&gt;music_directory &quot;~/Music/beets&quot;        # Beets music library folder
+playlist_directory &quot;~/.mpd/playlists&quot;  # Where do playlists live?
+db_file &quot;~/.mpd/database&quot;              
+pid_file &quot;~/.mpd/pid&quot;                  
+state_file &quot;~/.mpd/state&quot;
+sticker_file &quot;~/.mpd/sticker.sql&quot;
+port &quot;6600&quot;                          
+auto_update &quot;yes&quot;
+audio_output {
+         type &quot;osx&quot;
+         name &quot;My Mac Device&quot;
+         mixer_type &quot;software&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, update your beets configuration (&lt;code&gt;~/.config/beets/config.yaml&lt;/code&gt;) to work with mpd:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs less&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;mpdupdate&lt;/span&gt;:
+    &lt;span class=&quot;hljs-attribute&quot;&gt;host&lt;/span&gt;: localhost
+    &lt;span class=&quot;hljs-attribute&quot;&gt;port&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;6600&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Make sure that mpd is updated with all your music from beets:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;mpc update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The key thing to remember about mpd is that it runs and plays music in the background. There&amp;#39;s no user interface to mpd: you need to use a client to control it. When you use a client, you&amp;#39;re sending commands to mpd about what to play; so you can open and close clients freely without stopping playback. It&amp;#39;s like if you could quit iTunes and still have your music playing. &lt;/p&gt;
+&lt;p&gt;You can use mpc to control playback with mpd, but you&amp;#39;ll probably want something a little bit more user-friendly. Here&amp;#39;s a &lt;a href=&quot;http://mpd.wikia.com/wiki/Clients&quot;&gt;laundry list of players&lt;/a&gt; you can use to control mpd. I prefer ncmpcpp, a command-line player, because I spend a lot of time in the terminal anyway. And, as you might have noticed, I want a lightning-fast client.&lt;/p&gt;
+&lt;p&gt;Install ncmpcpp:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;brew install ncmpcpp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here&amp;#39;s my super-complex ncmpcpp configuration file (at &lt;code&gt;~/.ncmpcpp/config&lt;/code&gt;):&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs ini&quot;&gt;&lt;span class=&quot;hljs-setting&quot;&gt;ignore_leading_the = &lt;span class=&quot;hljs-value&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;yes&lt;/span&gt;  # Alphabetize &lt;span class=&quot;hljs-string&quot;&gt;&quot;The Beatles&quot;&lt;/span&gt; with &lt;span class=&quot;hljs-string&quot;&gt;&quot;B&quot;&lt;/span&gt; instead of &lt;span class=&quot;hljs-string&quot;&gt;&quot;T&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run ncmpcpp in the terminal:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;ncmpcpp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You&amp;#39;ll see a playlist screen. (Pro tip: if you&amp;#39;re using iTerm 2 v3 and you see a bunch of q&amp;#39;s instead of nice lines in the UI, &lt;a href=&quot;../img/iterm2.png&quot;&gt;enable this iTerm option.&lt;/a&gt;) To browse your music library, hit tab. You can search this screen by typing &lt;code&gt;/&lt;/code&gt; and then a search term, and hitting &lt;code&gt;.&lt;/code&gt; to find the next match. To go a level deeper in the folder structure, hit return on a folder. To add a folder or file to your playlist, hit space. If you want more control over how it&amp;#39;s added, hit &lt;code&gt;a&lt;/code&gt; instead. There&amp;#39;s also a slightly cleaner media library view that you can find by hitting &lt;code&gt;4&lt;/code&gt;. To start playback, hit tab again to return to the playlist screen and press return. There&amp;#39;s a more advanced search interface available by typing &lt;code&gt;3&lt;/code&gt; -- press enter on a category, type your query, and hit &lt;code&gt;y&lt;/code&gt; to see the results. You can find out &lt;a href=&quot;http://rybczak.net/ncmpcpp/&quot;&gt;more about ncmpcpp here&lt;/a&gt;. Hit &lt;code&gt;F1&lt;/code&gt; to see the help screen.&lt;/p&gt;
+&lt;p&gt;You can quit ncmpcpp by typing &lt;code&gt;q&lt;/code&gt;. But remember: the music will keep playing. If you want to toggle play/pause without opening ncmpcpp, you can use mpc from the terminal:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;mpc toggle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://vine.co/v/i9h6xBYrKJj&quot;&gt;Sheesh.&lt;/a&gt; You&amp;#39;re probably used to using the media keys on your keyboard to control audio playback. Those keys are a bit finicky, but we can whip up a nice subsitute with &lt;a href=&quot;https://www.alfredapp.com&quot;&gt;Alfred.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/mpdWorkflow.png&quot; alt=&quot;mpd workflow in Alfred&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The mappings are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Toggle play/pause: ⌥] - &lt;code&gt;/usr/local/bin/mpc toggle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Skip to the next song: ⌥\ - &lt;code&gt;/usr/local/bin/mpc next&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart the current song: ⌥[ - &lt;code&gt;/usr/local/bin/mpc seek 0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I like listening to whole albums, so I added another workflow that lets me type, for example, &lt;code&gt;a 808s&lt;/code&gt; in Alfred to add the album or albums matching &amp;quot;808s&amp;quot; to my current playlist. Alfred and mpd &lt;a href=&quot;https://streamable.com/9szx&quot;&gt;on an ultralight beam&lt;/a&gt;:&lt;/p&gt;
+&lt;iframe src=&quot;//giphy.com/embed/l41YnPIEMc9cITlg4&quot; frameBorder=&quot;0&quot; width=&quot;600&quot; height=&quot;327&quot; class=&quot;giphy-embed&quot; allowFullScreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;You can &lt;a href=&quot;../toys/musiclibrary/mpd.alfredworkflow&quot;&gt;download my Alfred workflow to control mpd.&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;syncing-with-the-iphone&quot;&gt;Syncing with the iPhone&lt;/h2&gt;
+&lt;p&gt;I&amp;#39;ve shed my dependence on iTunes using beets, mpd, ncmpcpp, and Alfred, but I still need to use iTunes to sync my music to my iPhone. There&amp;#39;s an easy way to manage this. First, make sure you remove iTunes&amp;#39;s privilege to manage your music library for you.&lt;/p&gt;
+&lt;p&gt; In iTunes, go to Advanced Preferences and uncheck &amp;quot;Keep Music folder organized&amp;quot; and &amp;quot;Copy files to iTunes Media when adding to library.&amp;quot;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/iTunesPrefs.png&quot; alt=&quot;iTunes advanced preferences&quot;&gt;&lt;/p&gt;
+&lt;p&gt;We can automatically create a playlist that contains all of our music every time we import new music into beets. Modify &lt;code&gt;~/.config/beets/config.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs groovy&quot;&gt;&lt;span class=&quot;hljs-string&quot;&gt;smartplaylist:&lt;/span&gt;
+&lt;span class=&quot;hljs-label&quot;&gt;    playlist_dir:&lt;/span&gt; &lt;span class=&quot;hljs-regexp&quot;&gt;~/.mpd/&lt;/span&gt;playlists
+&lt;span class=&quot;hljs-label&quot;&gt;    playlists:&lt;/span&gt;
+        - &lt;span class=&quot;hljs-string&quot;&gt;name:&lt;/span&gt; all.m3u
+&lt;span class=&quot;hljs-label&quot;&gt;          query:&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;''&lt;/span&gt;                  # Matches all music &lt;span class=&quot;hljs-keyword&quot;&gt;in&lt;/span&gt; your library
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, after you import something with &lt;code&gt;beet import&lt;/code&gt;, open &amp;#39;~/.mpd/playlists&amp;#39; and drag &lt;code&gt;all.m3u&lt;/code&gt; into iTunes. iTunes is smart enough to only add the new files to your library. Then you can sync with your iPhone and go about your life mostly iTunes-free.&lt;/p&gt;
+&lt;h2 id=&quot;bonus-scrobbling-to-last-fm&quot;&gt;Bonus: Scrobbling to last.fm&lt;/h2&gt;
+&lt;p&gt;If you&amp;#39;re obsessive enough to install and learn all these new tools, you are probably a last.fm fanatic &lt;a href=&quot;http://www.last.fm/user/StevoX&quot;&gt;like me.&lt;/a&gt; It&amp;#39;s easy to setup last.fm scrobbling with mpd. First install mpdscribble:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;brew install mpdscribble
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and run the command that homebrew gives you to start mpdscribble on login. Edit the last.fm section of &lt;code&gt;/usr/local/etc/mpdscribble.conf&lt;/code&gt; with your username and password:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs makefile&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;# The port that the MPD listens on and mpdscribble should try to&lt;/span&gt;
+&lt;span class=&quot;hljs-comment&quot;&gt;# connect to.  Defaults to $MPD_PORT or 6600.&lt;/span&gt;
+&lt;span class=&quot;hljs-comment&quot;&gt;#port = 6600&lt;/span&gt;
+
+[last.fm]
+&lt;span class=&quot;hljs-constant&quot;&gt;url&lt;/span&gt; = http://post.audioscrobbler.com/
+&lt;span class=&quot;hljs-constant&quot;&gt;username&lt;/span&gt; = stevox
+&lt;span class=&quot;hljs-constant&quot;&gt;password&lt;/span&gt; = YOUR_LASTFM_PASSWORD
+&lt;span class=&quot;hljs-comment&quot;&gt;# The file where mpdscribble should store its Last.fm journal in case&lt;/span&gt;
+&lt;span class=&quot;hljs-comment&quot;&gt;# you do not have a connection to the Last.fm server.&lt;/span&gt;
+&lt;span class=&quot;hljs-constant&quot;&gt;journal&lt;/span&gt; = /var/cache/mpdscribble/lastfm.journal
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mpdscribble will now scrobble everything that mpd plays.&lt;/p&gt;
+&lt;h2 id=&quot;bonus-ripping-cds-what-s-a-cd-&quot;&gt;Bonus: Ripping CDs (What&amp;#39;s a CD?)&lt;/h2&gt;
+&lt;p&gt;CDs are dumb. If you absolutely must, use abcde to rip CDs. It&amp;#39;s great (well, as great as a tool can be for turning a dumb thing into a not dumb thing).&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;brew install abcde cdparanoia eyeD3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.andrews-corner.org/abcde.html#mp3&quot;&gt;Here&amp;#39;s the &lt;code&gt;~/.abcde.conf&lt;/code&gt; that I use for ripping CDs to mp3s.&lt;/a&gt; You can run it by inserting a CD and entering the command&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;abcde
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to rip the CD in the drive. That is, if you even have a CD drive.&lt;/p&gt;
+&lt;h2 id=&quot;bonus-backup&quot;&gt;Bonus: Backup&lt;/h2&gt;
+&lt;p&gt;I keep my &lt;code&gt;~/Music/beets&lt;/code&gt; folder synced between all of my computers using &lt;a href=&quot;https://getsync.com&quot;&gt;Resilio Sync (née BitTorrent Sync)&lt;/a&gt;. You could also use something like Google Drive or Dropbox if you want to pay for the cloud storage. The nice thing about Sync is that it keeps everything in sync between all of your computers without requiring cloud storage.&lt;/p&gt;
+&lt;p&gt;You could also use an open source solution here, like &lt;a href=&quot;https://syncthing.net&quot;&gt;syncthing&lt;/a&gt; or writing some scripts around &lt;code&gt;rsync&lt;/code&gt; or something. Resilio Sync is easy to setup and works great for my simple use case.&lt;/p&gt;
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;/h2&gt;
+&lt;p&gt;We did it! We don&amp;#39;t need iTunes anymore &lt;em&gt;except to sync to the phone, grumble grumble&lt;/em&gt;. It feels great, doesn&amp;#39;t it? We went from this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/iTunesActivity.png&quot; alt=&quot;iTunes memory usage&quot;&gt;&lt;/p&gt;
+&lt;p&gt;to this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/musiclibrary/mpdActivity.png&quot; alt=&quot;mpd memory usage&quot;&gt;&lt;/p&gt;
+&lt;p&gt;while doing nothing but playing a song.&lt;/p&gt;
+&lt;p&gt;In addition to the obvious benefits you get from using The Right Tool For The Job, each of these tools has oodles of options that you can tweak to perfect your music organizing and listening experience. For example, we barely used any of the functionality of beets, and &lt;a href=&quot;http://beets.readthedocs.io/en/latest/plugins/index.html&quot;&gt;look at all these plugins!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</content>
+		</entry>
 	
 		<entry>
 			<title>speecheditor: an audio story editing tool</title>
