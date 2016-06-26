@@ -27,12 +27,12 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				Personal website of Steve Rubin, PhD student at UC Berkeley.
+				Personal website of Steve Rubin, software engineer and CS PhD.
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				steve, rubin, steve rubin, berkeley, eecs, uc berkeley, cs, computer science, hci, music
+				steve, rubin, steve rubin, berkeley, eecs, uc berkeley, cs, computer science, hci, music, detour, engineering, tech
 				"""
 
 			# The website author's name
