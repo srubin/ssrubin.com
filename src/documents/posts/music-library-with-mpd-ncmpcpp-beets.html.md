@@ -4,7 +4,9 @@ layout: "post"
 date: "6/25/2016"
 ---
 
-Since switching to OS X (macOS) in 2009, I've been disappointed with iTunes. It's never been a particularly performant piece of software, but more than anything, the design seems to get in the way of the functionality. The more recent iTunes redesign is pretty (it's hard to dislike the auto-selected colors for the album view) but it's still a usability tire fire.
+I used Windows until 2009, and I was used to disliking iTunes. I figured that Apple was doing the minimum amount of work required to support iPods on Windows. After switching to OS X (macOS), I realized that iTunes just isn't meant to be _just_ a music player and organizer. It does those things, but it's also a tool for syncing media to your phone, a streaming music service, and a weird social network. It's a music store, a book store, a video store, an app store, a podcast store, a music video store, an audiobook store, and whatever iTunes U is.
+
+All of these functions get in the way of the features that I care most about and use on a daily basis: organizing and playing music. The more recent iTunes redesign is pretty (it's hard to dislike the auto-selected colors for the album view) but overall, the software is a bloated usability tire fire.
 
 ![iTunes automatic color-matching for albums looks nice](../img/musiclibrary/iTunes.png)
 

@@ -24,6 +24,10 @@ layout: default
     </div>
 </div>
 
+<hr>
+
 <div class="row">
-    <%- @getDisqus() %>
+    <div class="offset2 span8">
+        <%- @getDisqus() %>
+    </div>
 </div>
