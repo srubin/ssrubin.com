@@ -17,19 +17,14 @@ Getting started
 
 This guide assumes you can comfortably edit files, create folders, and run commands in Terminal.
 
-To install the open source software I reference here, install [homebrew](http://brew.sh). Open Terminal and run:
-
-``` sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
+To install the open source software I reference here, you need to first install [homebrew](http://brew.sh).
 
 Library management
 ------------------
 
 It's hard to maintain a clean library of digital music. When you're ripping your own CDs you generally get accurate tag metadata, but we've all downloaded albums that are mistagged or untagged. I'm not even talking about illegal downloads: I've purchased albums from band and record label websites that have no id3 tags at all.
 
-(Beets)[http://beets.io] is an open source music library management tool. It takes care of all the tag gobbledy-gook that we need. To install it, enter the following commands in Terminal:
+[Beets](http://beets.io) is an open source music library management tool. It takes care of all the tag gobbledy-gook that we need. To install it, enter the following commands in Terminal:
 
 ``` bash
 brew install python
@@ -70,7 +65,7 @@ beet import ~/Music/iTunes/iTunes\ Media
 Playback
 --------
 
-Once you have a perfectly organized and tagged music library, you'll probably want some way to play it. This is where mpd comes in. [Mpd](https://www.musicpd.org) is a piece of software that runs in the background and plays music. It's fast and lightweight-- you're certainly not going to miss iTunes in that department.
+Once you have a perfectly organized and tagged music library, you'll probably want some way to play it. This is where mpd comes in. [Mpd](https://www.musicpd.org) is a piece of software that runs in the background and plays music. It's fast and lightweight—you're certainly not going to miss iTunes in that department.
 
 First install mpd:
 
@@ -114,7 +109,7 @@ mpc update
 
 The key thing to remember about mpd is that it runs and plays music in the background. There's no user interface to mpd: you need to use a client to control it. When you use a client, you're sending commands to mpd about what to play; so you can open and close clients freely without stopping playback. It's like if you could quit iTunes and still have your music playing. 
 
-You can use mpc to control playback with mpd, but you'll probably want something a little bit more user-friendly. Here's a [laundry list of players](http://mpd.wikia.com/wiki/Clients) you can use to control mpd. I prefer ncmpcpp, a command-line player, because I spend a lot of time in the terminal anyway. And, as you might have noticed, I want a lightning-fast client.
+You can use mpc to control playback with mpd, but you'll probably want something more user-friendly. Here's a [laundry list of players](http://mpd.wikia.com/wiki/Clients) you can use to control mpd. I prefer ncmpcpp, a command-line player, because I spend a lot of time in the terminal anyway. And, as you might have noticed, I want a lightning-fast client.
 
 Install ncmpcpp:
 
@@ -134,7 +129,7 @@ Run ncmpcpp in the terminal:
 ncmpcpp
 ```
 
-You'll see a playlist screen. (Pro tip: if you're using iTerm 2 v3 and you see a bunch of q's instead of nice lines in the UI, [enable this iTerm option.](../img/iterm2.png)) To browse your music library, hit tab. You can search this screen by typing `/` and then a search term, and hitting `.` to find the next match. To go a level deeper in the folder structure, hit return on a folder. To add a folder or file to your playlist, hit space. If you want more control over how it's added, hit `a` instead. There's also a slightly cleaner media library view that you can find by hitting `4`. To start playback, hit tab again to return to the playlist screen and press return. There's a more advanced search interface available by typing `3` -- press enter on a category, type your query, and hit `y` to see the results. You can find out [more about ncmpcpp here](http://rybczak.net/ncmpcpp/). Hit `F1` to see the help screen.
+You'll see a playlist screen. (Pro tip: if you're using iTerm 2 v3 and you see a bunch of q's instead of nice lines in the UI, [enable this iTerm option.](../img/iterm2.png)) To browse your music library, hit tab. You can search this screen by typing `/` and then a search term, and hitting `.` to find the next match. To go a level deeper in the folder structure, hit return on a folder. To add a folder or file to your playlist, hit space. If you want more control over how it's added, hit `a` instead. There's also a slightly cleaner media library view that you can find by hitting `4`. To start playback, hit tab again to return to the playlist screen and press return. There's a more advanced search interface available by typing `3`—press return on a category, type your query, and hit `y` to see the results. You can find out [more about ncmpcpp here](http://rybczak.net/ncmpcpp/). Hit `F1` to see the help screen.
 
 You can quit ncmpcpp by typing `q`. But remember: the music will keep playing. If you want to toggle play/pause without opening ncmpcpp, you can use mpc from the terminal:
 
@@ -161,9 +156,7 @@ You can [download my Alfred workflow to control mpd.](../toys/musiclibrary/mpd.a
 Syncing with the iPhone
 -----------------------
 
-I've shed my dependence on iTunes using beets, mpd, ncmpcpp, and Alfred, but I still need to use iTunes to sync my music to my iPhone. There's an easy way to manage this. First, make sure you remove iTunes's privilege to manage your music library for you.
-
- In iTunes, go to Advanced Preferences and uncheck "Keep Music folder organized" and "Copy files to iTunes Media when adding to library."
+I've shed my dependence on iTunes using beets, mpd, ncmpcpp, and Alfred, but I still need to use it to sync my music to my iPhone. There's an easy way to manage this. First, make sure you remove iTunes's privilege to manage your music library for you. In iTunes, go to Advanced Preferences and uncheck "Keep Music folder organized" and "Copy files to iTunes Media when adding to library."
 
 ![iTunes advanced preferences](../img/musiclibrary/iTunesPrefs.png)
 
@@ -177,7 +170,7 @@ smartplaylist:
           query: ''                  # Matches all music in your library
 ```
 
-Now, after you import something with `beet import`, open '~/.mpd/playlists' and drag `all.m3u` into iTunes. iTunes is smart enough to only add the new files to your library. Then you can sync with your iPhone and go about your life mostly iTunes-free.
+Now, after you import something with `beet import`, open `~/.mpd/playlists` and drag `all.m3u` into iTunes. iTunes is smart enough to only add the new files to your library. Then you can sync with your iPhone and go about your life mostly iTunes-free.
 
 Bonus: Scrobbling to last.fm
 ----------------------------
@@ -197,7 +190,7 @@ and run the command that homebrew gives you to start mpdscribble on login. Edit 
 
 [last.fm]
 url = http://post.audioscrobbler.com/
-username = stevox
+username = YOUR_LASTFM_USERNAME
 password = YOUR_LASTFM_PASSWORD
 # The file where mpdscribble should store its Last.fm journal in case
 # you do not have a connection to the Last.fm server.
@@ -226,7 +219,7 @@ to rip the CD in the drive. That is, if you even have a CD drive.
 Bonus: Backup
 -------------
 
-I keep my `~/Music/beets` folder synced between all of my computers using [Resilio Sync (née BitTorrent Sync)](https://getsync.com). You could also use something like Google Drive or Dropbox if you want to pay for the cloud storage. The nice thing about Sync is that it keeps everything in sync between all of your computers without requiring cloud storage.
+I keep my `~/Music/beets` folder synced between all of my computers using [Resilio Sync (née BitTorrent Sync)](https://getsync.com). You could also use something like Google Drive or Dropbox if you want to pay for those. The nice thing about Sync is that it keeps everything in sync between all of your computers without requiring cloud storage.
 
 You could also use an open source solution here, like [syncthing](https://syncthing.net) or writing some scripts around `rsync` or something. Resilio Sync is easy to setup and works great for my simple use case.
 
