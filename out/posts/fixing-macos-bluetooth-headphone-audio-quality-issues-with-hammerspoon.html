@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href='//fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+
+	<!-- Our site title and description -->
+	<title>&quot;Fixing&quot; macOS Bluetooth Headphone Audio Quality Issues with Hammerspoon | Steve Rubin</title>
+	<meta name="description" content="Personal website of Steve Rubin, software engineer and CS PhD." />
+	<meta name="keywords" content="steve, rubin, steve rubin, berkeley, eecs, uc berkeley, cs, computer science, hci, music, detour, engineering, tech" />
+	<meta name="author" content="Steve Rubin" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.78.5" />
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<link  rel="stylesheet" href="//ssrubin.com/vendor/twitter-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="//ssrubin.com/vendor/twitter-bootstrap/css/bootstrap-responsive.css" /><link  rel="stylesheet" href="//ssrubin.com/styles/style.css" /><link  rel="stylesheet" href="//ssrubin.com/styles/solarized_light.css" />
+</head>
+<body>
+	<!-- Markup -->
+
+	<div class="container">
+		<section id="content" class="content">
+			<div class="row">
+    <div class="span2 text-right">
+        <h3>4/1/2017</h3>
+    </div>
+    <div class="span6">
+        <h1><em class="muted">#</em> <a href="//ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html">"Fixing" macOS Bluetooth Headphone Audio Quality Issues with Hammerspoon</a></h1>
+    </div>
+    <div class="span4">
+        <p class="text-right">
+            <a href="//ssrubin.com/posts.html">Posts</a> | <a href="//ssrubin.com/">Home</a>          
+        </p>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="offset2 span8">
+        <p>When Apple delayed the AirPods release, I was worried that they were vaporware. </p>
+<p>Well, they weren&#39;t. I got my pair, and I bought in to looking like the San Francisco Tech Model Citizen while walking to work (<a href="https://www.last.fm/user/StevoX">listening to San Francisco Tech Model Citizen approved music, of course</a>). And then I accidentally got another set of Bluetooth headphones, the noise-cancelling Bose QC35, great for the ambient noise in the San Francisco Tech Model Citizen&#39;s Open Office. I wasn&#39;t specifically looking for wireless headphones, but it seemed wrong to buy a brand new pair of headphones that required an adapter to work with my phone (Dear Apple: you win).</p>
+<p>So, in the course of two and a half months I&#39;ve switched completely to wireless headphones. It certainly feels like The Future but macOS isn&#39;t quite up to the task. Notably, when I connect a pair of Bluetooth headphones, the Mac usually automatically sets those headphones as both the system output device and the input device. Unfortunately, macOS then reduces the audio output samplerate to 8000 Hz, down from the usual 44100 Hz. I <em>think</em> this is a Bluetooth hardware limitation, but I&#39;m not quite sure. Either way: it causes everything to sound like garbage.</p>
+<p><img src="../img/macaudio/airpods-8khz.png" alt="AirPods switch to 8 kHz output samplerate when they&#39;re the input device."></p>
+<p>There&#39;s an easy fix, though: once you&#39;ve connected your AirPods or other BT Audio device, switch the input device back to the default input device (the &quot;Internal Microphone&quot;).</p>
+<p>That&#39;s annoying to do automatically, but there&#39;s a great tool called <a href="http://www.hammerspoon.org">Hammerspoon</a> that lets you automate lots of things like this on macOS. Here&#39;s the Hammerspoon script I whipped up (<a href="https://github.com/srubin/hammersteve">and on github</a>):</p>
+<pre class="highlight"><code class="hljs lua"><span class="hljs-comment">-- Avoid automatically setting a bluetooth audio input device</span>
+
+lastSetOutputDeviceTime = os.time()
+lastInputDevice = <span class="hljs-literal">nil</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">audioDeviceChanged</span><span class="hljs-params">(arg)</span></span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dOut'</span> <span class="hljs-keyword">then</span>
+        lastSetOutputDeviceTime = os.time()
+    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dIn '</span> <span class="hljs-keyword">and</span> os.time() - lastSetOutputDeviceTime &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+        inputDevice = hs.audiodevice.defaultInputDevice()
+        <span class="hljs-keyword">if</span> inputDevice:transportType() == <span class="hljs-string">'Bluetooth'</span> <span class="hljs-keyword">then</span>
+            internalMic = lastInputDevice <span class="hljs-keyword">or</span> hs.audiodevice.findInputByName(<span class="hljs-string">'Built-in Microphone'</span>)
+            internalMic:setDefaultInputDevice()
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    lastInputDevice = hs.audiodevice.defaultInputDevice()
+<span class="hljs-keyword">end</span>
+
+hs.audiodevice.watcher.setCallback(audioDeviceChanged)
+hs.audiodevice.watcher.start()
+</code></pre>
+<p>When you connect a Bluetooth audio device, this script changes the input device to the previously selected input device. If you actually <em>want</em> to use the microphone on the BT audio device, you can manually change the input device to the Bluetooth headphones, because the script only automatically switches away from those input devices within 2 seconds of an output device change.</p>
+<p>I hope Apple comes up with a nicer way to manage this, but this is a nice and easy fix in the meantime.</p>
+
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="offset2 span8">
+        <div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'ssrubin';
+		window.disqus_developer = '1';
+		window.disqus_url = 'https://ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html';
+		window.disqus_identifier = 'posts-fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon';
+		window.disqus_title = '"Fixing" macOS Bluetooth Headphone Audio Quality Issues with Hammerspoon';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</div>
+		</section>
+
+	</div><!-- /container -->
+
+	<!-- Scripts -->
+	<script defer="defer"  src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script><script defer="defer"  src="//ssrubin.com/vendor/modernizr.js"></script><script defer="defer"  src="//ssrubin.com/vendor/twitter-bootstrap/js/bootstrap.min.js"></script><script defer="defer"  src="//ssrubin.com/vendor/jquery.imagesloaded.min.js"></script><script defer="defer"  src="//ssrubin.com/scripts/script.js"></script>
+	
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71698881-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -183,7 +183,7 @@ brew install mpdscribble
 
 and run the command that homebrew gives you to start mpdscribble on login. Edit the last.fm section of `/usr/local/etc/mpdscribble.conf` with your username and password:
 
-``` conf
+``` ini
 # The port that the MPD listens on and mpdscribble should try to
 # connect to.  Defaults to $MPD_PORT or 6600.
 #port = 6600

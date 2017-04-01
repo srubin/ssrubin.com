@@ -72,13 +72,13 @@
 <p>Next, create a folder where you want to keep all of your music. On my computer, I created a folder called <code>beets</code> in <code>~/Music</code>:</p>
 <p><img src="../img/musiclibrary/folder.png" alt="My beets music folder"></p>
 <p>We need to configure beets. Create or edit <code>~/.config/beets/config.yaml</code>:</p>
-<pre class="highlight"><code class="hljs groovy"><span class="hljs-string">directory:</span> <span class="hljs-regexp">~/Music/</span>beets                   # Where does the music live?
-library: <span class="hljs-regexp">~/Dropbox/</span>beets/musiclibrary.blb  # Where does the beets database live?
-import:
-<span class="hljs-label">    move:</span> yes                              # Move your files to <span class="hljs-regexp">~/Music/</span>beets after <span class="hljs-keyword">import</span>
-<span class="hljs-string">plugins:</span> lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart
-<span class="hljs-string">embedart:</span>
-<span class="hljs-label">    auto:</span> yes                              # Embed album art <span class="hljs-keyword">in</span> the music files
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">directory:</span> <span class="hljs-string">~/Music/beets</span>                   <span class="hljs-comment"># Where does the music live?</span>
+<span class="hljs-attr">library:</span> <span class="hljs-string">~/Dropbox/beets/musiclibrary.blb</span>  <span class="hljs-comment"># Where does the beets database live?</span>
+<span class="hljs-attr">import:</span>
+<span class="hljs-attr">    move:</span> <span class="hljs-literal">yes</span>                              <span class="hljs-comment"># Move your files to ~/Music/beets after import</span>
+<span class="hljs-attr">plugins:</span> <span class="hljs-string">lastgenre</span> <span class="hljs-string">fetchart</span> <span class="hljs-string">ftintitle</span> <span class="hljs-string">mpdupdate</span> <span class="hljs-string">smartplaylist</span> <span class="hljs-string">random</span> <span class="hljs-string">embedart</span>
+<span class="hljs-attr">embedart:</span>
+<span class="hljs-attr">    auto:</span> <span class="hljs-literal">yes</span>                              <span class="hljs-comment"># Embed album art in the music files</span>
 </code></pre>
 <p>To add an album to your new beets music library, run the following in Terminal:</p>
 <pre class="highlight"><code class="hljs bash">beet import ~/Downloads/Car\ Seat\ Headrest\ -\ Teens\ Of\ Denial
@@ -108,9 +108,9 @@ audio_output {
 }
 </code></pre>
 <p>Next, update your beets configuration (<code>~/.config/beets/config.yaml</code>) to work with mpd:</p>
-<pre class="highlight"><code class="hljs less"><span class="hljs-attribute">mpdupdate</span>:
-    <span class="hljs-attribute">host</span>: localhost
-    <span class="hljs-attribute">port</span>: <span class="hljs-number">6600</span>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">mpdupdate:</span>
+<span class="hljs-attr">    host:</span> <span class="hljs-string">localhost</span>
+<span class="hljs-attr">    port:</span> <span class="hljs-number">6600</span>
 </code></pre>
 <p>Make sure that mpd is updated with all your music from beets:</p>
 <pre class="highlight"><code class="hljs bash">mpc update
@@ -121,7 +121,7 @@ audio_output {
 <pre class="highlight"><code class="hljs bash">brew install ncmpcpp
 </code></pre>
 <p>Here&#39;s my super-complex ncmpcpp configuration file (at <code>~/.ncmpcpp/config</code>):</p>
-<pre class="highlight"><code class="hljs ini"><span class="hljs-setting">ignore_leading_the = <span class="hljs-value"><span class="hljs-keyword">yes</span>  # Alphabetize <span class="hljs-string">"The Beatles"</span> with <span class="hljs-string">"B"</span> instead of <span class="hljs-string">"T"</span></span></span>
+<pre class="highlight"><code class="hljs ini"><span class="hljs-attr">ignore_leading_the</span> = <span class="hljs-literal">yes</span>  # Alphabetize <span class="hljs-string">"The Beatles"</span> with <span class="hljs-string">"B"</span> instead of <span class="hljs-string">"T"</span>
 </code></pre>
 <p>Run ncmpcpp in the terminal:</p>
 <pre class="highlight"><code class="hljs bash">ncmpcpp
@@ -146,11 +146,11 @@ audio_output {
 <p>I&#39;ve shed my dependence on iTunes using beets, mpd, ncmpcpp, and Alfred, but I still need to use it to sync my music to my iPhone. There&#39;s an easy way to manage this. First, make sure you remove iTunes&#39;s privilege to manage your music library for you. In iTunes, go to Advanced Preferences and uncheck &quot;Keep Music folder organized&quot; and &quot;Copy files to iTunes Media when adding to library.&quot;</p>
 <p><img src="../img/musiclibrary/iTunesPrefs.png" alt="iTunes advanced preferences"></p>
 <p>We can automatically create a playlist that contains all of our music every time we import new music into beets. Modify <code>~/.config/beets/config.yaml</code>:</p>
-<pre class="highlight"><code class="hljs groovy"><span class="hljs-string">smartplaylist:</span>
-<span class="hljs-label">    playlist_dir:</span> <span class="hljs-regexp">~/.mpd/</span>playlists
-<span class="hljs-label">    playlists:</span>
-        - <span class="hljs-string">name:</span> all.m3u
-<span class="hljs-label">          query:</span> <span class="hljs-string">''</span>                  # Matches all music <span class="hljs-keyword">in</span> your library
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">smartplaylist:</span>
+<span class="hljs-attr">    playlist_dir:</span> <span class="hljs-string">~/.mpd/playlists</span>
+<span class="hljs-attr">    playlists:</span>
+<span class="hljs-attr">        - name:</span> <span class="hljs-string">all.m3u</span>
+<span class="hljs-attr">          query:</span> <span class="hljs-string">''</span>                  <span class="hljs-comment"># Matches all music in your library</span>
 </code></pre>
 <p>Now, after you import something with <code>beet import</code>, open <code>~/.mpd/playlists</code> and drag <code>all.m3u</code> into iTunes. iTunes is smart enough to only add the new files to your library. Then you can sync with your iPhone and go about your life mostly iTunes-free.</p>
 <h2 id="bonus-scrobbling-to-last-fm">Bonus: Scrobbling to last.fm</h2>
@@ -158,17 +158,17 @@ audio_output {
 <pre class="highlight"><code class="hljs bash">brew install mpdscribble
 </code></pre>
 <p>and run the command that homebrew gives you to start mpdscribble on login. Edit the last.fm section of <code>/usr/local/etc/mpdscribble.conf</code> with your username and password:</p>
-<pre class="highlight"><code class="hljs makefile"><span class="hljs-comment"># The port that the MPD listens on and mpdscribble should try to</span>
+<pre class="highlight"><code class="hljs ini"><span class="hljs-comment"># The port that the MPD listens on and mpdscribble should try to</span>
 <span class="hljs-comment"># connect to.  Defaults to $MPD_PORT or 6600.</span>
 <span class="hljs-comment">#port = 6600</span>
-
-[last.fm]
-<span class="hljs-constant">url</span> = http://post.audioscrobbler.com/
-<span class="hljs-constant">username</span> = YOUR_LASTFM_USERNAME
-<span class="hljs-constant">password</span> = YOUR_LASTFM_PASSWORD
+<span class="hljs-section">
+[last.fm]</span>
+<span class="hljs-attr">url</span> = http://post.audioscrobbler.com/
+<span class="hljs-attr">username</span> = YOUR_LASTFM_USERNAME
+<span class="hljs-attr">password</span> = YOUR_LASTFM_PASSWORD
 <span class="hljs-comment"># The file where mpdscribble should store its Last.fm journal in case</span>
 <span class="hljs-comment"># you do not have a connection to the Last.fm server.</span>
-<span class="hljs-constant">journal</span> = /var/cache/mpdscribble/lastfm.journal
+<span class="hljs-attr">journal</span> = /var/cache/mpdscribble/lastfm.journal
 </code></pre>
 <p>Mpdscribble will now scrobble everything that mpd plays.</p>
 <h2 id="bonus-ripping-cds-what-s-a-cd-">Bonus: Ripping CDs (What&#39;s a CD?)</h2>

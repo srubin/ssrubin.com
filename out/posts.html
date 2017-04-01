@@ -54,6 +54,45 @@
 
 <div class="row">
     <div class="span2 text-right">
+        <h3>4/1/2017</h3>
+    </div>
+    <div class="span8">
+        <h2><a href="//ssrubin.com/posts/fixing-macos-bluetooth-headphone-audio-quality-issues-with-hammerspoon.html">"Fixing" macOS Bluetooth Headphone Audio Quality Issues with Hammerspoon</a></h2>
+        <p>When Apple delayed the AirPods release, I was worried that they were vaporware. </p>
+<p>Well, they weren&#39;t. I got my pair, and I bought in to looking like the San Francisco Tech Model Citizen while walking to work (<a href="https://www.last.fm/user/StevoX">listening to San Francisco Tech Model Citizen approved music, of course</a>). And then I accidentally got another set of Bluetooth headphones, the noise-cancelling Bose QC35, great for the ambient noise in the San Francisco Tech Model Citizen&#39;s Open Office. I wasn&#39;t specifically looking for wireless headphones, but it seemed wrong to buy a brand new pair of headphones that required an adapter to work with my phone (Dear Apple: you win).</p>
+<p>So, in the course of two and a half months I&#39;ve switched completely to wireless headphones. It certainly feels like The Future but macOS isn&#39;t quite up to the task. Notably, when I connect a pair of Bluetooth headphones, the Mac usually automatically sets those headphones as both the system output device and the input device. Unfortunately, macOS then reduces the audio output samplerate to 8000 Hz, down from the usual 44100 Hz. I <em>think</em> this is a Bluetooth hardware limitation, but I&#39;m not quite sure. Either way: it causes everything to sound like garbage.</p>
+<p><img src="../img/macaudio/airpods-8khz.png" alt="AirPods switch to 8 kHz output samplerate when they&#39;re the input device."></p>
+<p>There&#39;s an easy fix, though: once you&#39;ve connected your AirPods or other BT Audio device, switch the input device back to the default input device (the &quot;Internal Microphone&quot;).</p>
+<p>That&#39;s annoying to do automatically, but there&#39;s a great tool called <a href="http://www.hammerspoon.org">Hammerspoon</a> that lets you automate lots of things like this on macOS. Here&#39;s the Hammerspoon script I whipped up (<a href="https://github.com/srubin/hammersteve">and on github</a>):</p>
+<pre class="highlight"><code class="hljs lua"><span class="hljs-comment">-- Avoid automatically setting a bluetooth audio input device</span>
+
+lastSetOutputDeviceTime = os.time()
+lastInputDevice = <span class="hljs-literal">nil</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">audioDeviceChanged</span><span class="hljs-params">(arg)</span></span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dOut'</span> <span class="hljs-keyword">then</span>
+        lastSetOutputDeviceTime = os.time()
+    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dIn '</span> <span class="hljs-keyword">and</span> os.time() - lastSetOutputDeviceTime &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+        inputDevice = hs.audiodevice.defaultInputDevice()
+        <span class="hljs-keyword">if</span> inputDevice:transportType() == <span class="hljs-string">'Bluetooth'</span> <span class="hljs-keyword">then</span>
+            internalMic = lastInputDevice <span class="hljs-keyword">or</span> hs.audiodevice.findInputByName(<span class="hljs-string">'Built-in Microphone'</span>)
+            internalMic:setDefaultInputDevice()
+        <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+    lastInputDevice = hs.audiodevice.defaultInputDevice()
+<span class="hljs-keyword">end</span>
+
+hs.audiodevice.watcher.setCallback(audioDeviceChanged)
+hs.audiodevice.watcher.start()
+</code></pre>
+<p>When you connect a Bluetooth audio device, this script changes the input device to the previously selected input device. If you actually <em>want</em> to use the microphone on the BT audio device, you can manually change the input device to the Bluetooth headphones, because the script only automatically switches away from those input devices within 2 seconds of an output device change.</p>
+<p>I hope Apple comes up with a nicer way to manage this, but this is a nice and easy fix in the meantime.</p>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="span2 text-right">
         <h3>6/25/2016</h3>
     </div>
     <div class="span8">
@@ -75,13 +114,13 @@
 <p>Next, create a folder where you want to keep all of your music. On my computer, I created a folder called <code>beets</code> in <code>~/Music</code>:</p>
 <p><img src="../img/musiclibrary/folder.png" alt="My beets music folder"></p>
 <p>We need to configure beets. Create or edit <code>~/.config/beets/config.yaml</code>:</p>
-<pre class="highlight"><code class="hljs groovy"><span class="hljs-string">directory:</span> <span class="hljs-regexp">~/Music/</span>beets                   # Where does the music live?
-library: <span class="hljs-regexp">~/Dropbox/</span>beets/musiclibrary.blb  # Where does the beets database live?
-import:
-<span class="hljs-label">    move:</span> yes                              # Move your files to <span class="hljs-regexp">~/Music/</span>beets after <span class="hljs-keyword">import</span>
-<span class="hljs-string">plugins:</span> lastgenre fetchart ftintitle mpdupdate smartplaylist random embedart
-<span class="hljs-string">embedart:</span>
-<span class="hljs-label">    auto:</span> yes                              # Embed album art <span class="hljs-keyword">in</span> the music files
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">directory:</span> <span class="hljs-string">~/Music/beets</span>                   <span class="hljs-comment"># Where does the music live?</span>
+<span class="hljs-attr">library:</span> <span class="hljs-string">~/Dropbox/beets/musiclibrary.blb</span>  <span class="hljs-comment"># Where does the beets database live?</span>
+<span class="hljs-attr">import:</span>
+<span class="hljs-attr">    move:</span> <span class="hljs-literal">yes</span>                              <span class="hljs-comment"># Move your files to ~/Music/beets after import</span>
+<span class="hljs-attr">plugins:</span> <span class="hljs-string">lastgenre</span> <span class="hljs-string">fetchart</span> <span class="hljs-string">ftintitle</span> <span class="hljs-string">mpdupdate</span> <span class="hljs-string">smartplaylist</span> <span class="hljs-string">random</span> <span class="hljs-string">embedart</span>
+<span class="hljs-attr">embedart:</span>
+<span class="hljs-attr">    auto:</span> <span class="hljs-literal">yes</span>                              <span class="hljs-comment"># Embed album art in the music files</span>
 </code></pre>
 <p>To add an album to your new beets music library, run the following in Terminal:</p>
 <pre class="highlight"><code class="hljs bash">beet import ~/Downloads/Car\ Seat\ Headrest\ -\ Teens\ Of\ Denial
@@ -111,9 +150,9 @@ audio_output {
 }
 </code></pre>
 <p>Next, update your beets configuration (<code>~/.config/beets/config.yaml</code>) to work with mpd:</p>
-<pre class="highlight"><code class="hljs less"><span class="hljs-attribute">mpdupdate</span>:
-    <span class="hljs-attribute">host</span>: localhost
-    <span class="hljs-attribute">port</span>: <span class="hljs-number">6600</span>
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">mpdupdate:</span>
+<span class="hljs-attr">    host:</span> <span class="hljs-string">localhost</span>
+<span class="hljs-attr">    port:</span> <span class="hljs-number">6600</span>
 </code></pre>
 <p>Make sure that mpd is updated with all your music from beets:</p>
 <pre class="highlight"><code class="hljs bash">mpc update
@@ -124,7 +163,7 @@ audio_output {
 <pre class="highlight"><code class="hljs bash">brew install ncmpcpp
 </code></pre>
 <p>Here&#39;s my super-complex ncmpcpp configuration file (at <code>~/.ncmpcpp/config</code>):</p>
-<pre class="highlight"><code class="hljs ini"><span class="hljs-setting">ignore_leading_the = <span class="hljs-value"><span class="hljs-keyword">yes</span>  # Alphabetize <span class="hljs-string">"The Beatles"</span> with <span class="hljs-string">"B"</span> instead of <span class="hljs-string">"T"</span></span></span>
+<pre class="highlight"><code class="hljs ini"><span class="hljs-attr">ignore_leading_the</span> = <span class="hljs-literal">yes</span>  # Alphabetize <span class="hljs-string">"The Beatles"</span> with <span class="hljs-string">"B"</span> instead of <span class="hljs-string">"T"</span>
 </code></pre>
 <p>Run ncmpcpp in the terminal:</p>
 <pre class="highlight"><code class="hljs bash">ncmpcpp
@@ -149,11 +188,11 @@ audio_output {
 <p>I&#39;ve shed my dependence on iTunes using beets, mpd, ncmpcpp, and Alfred, but I still need to use it to sync my music to my iPhone. There&#39;s an easy way to manage this. First, make sure you remove iTunes&#39;s privilege to manage your music library for you. In iTunes, go to Advanced Preferences and uncheck &quot;Keep Music folder organized&quot; and &quot;Copy files to iTunes Media when adding to library.&quot;</p>
 <p><img src="../img/musiclibrary/iTunesPrefs.png" alt="iTunes advanced preferences"></p>
 <p>We can automatically create a playlist that contains all of our music every time we import new music into beets. Modify <code>~/.config/beets/config.yaml</code>:</p>
-<pre class="highlight"><code class="hljs groovy"><span class="hljs-string">smartplaylist:</span>
-<span class="hljs-label">    playlist_dir:</span> <span class="hljs-regexp">~/.mpd/</span>playlists
-<span class="hljs-label">    playlists:</span>
-        - <span class="hljs-string">name:</span> all.m3u
-<span class="hljs-label">          query:</span> <span class="hljs-string">''</span>                  # Matches all music <span class="hljs-keyword">in</span> your library
+<pre class="highlight"><code class="hljs yaml"><span class="hljs-attr">smartplaylist:</span>
+<span class="hljs-attr">    playlist_dir:</span> <span class="hljs-string">~/.mpd/playlists</span>
+<span class="hljs-attr">    playlists:</span>
+<span class="hljs-attr">        - name:</span> <span class="hljs-string">all.m3u</span>
+<span class="hljs-attr">          query:</span> <span class="hljs-string">''</span>                  <span class="hljs-comment"># Matches all music in your library</span>
 </code></pre>
 <p>Now, after you import something with <code>beet import</code>, open <code>~/.mpd/playlists</code> and drag <code>all.m3u</code> into iTunes. iTunes is smart enough to only add the new files to your library. Then you can sync with your iPhone and go about your life mostly iTunes-free.</p>
 <h2 id="bonus-scrobbling-to-last-fm">Bonus: Scrobbling to last.fm</h2>
@@ -161,17 +200,17 @@ audio_output {
 <pre class="highlight"><code class="hljs bash">brew install mpdscribble
 </code></pre>
 <p>and run the command that homebrew gives you to start mpdscribble on login. Edit the last.fm section of <code>/usr/local/etc/mpdscribble.conf</code> with your username and password:</p>
-<pre class="highlight"><code class="hljs makefile"><span class="hljs-comment"># The port that the MPD listens on and mpdscribble should try to</span>
+<pre class="highlight"><code class="hljs ini"><span class="hljs-comment"># The port that the MPD listens on and mpdscribble should try to</span>
 <span class="hljs-comment"># connect to.  Defaults to $MPD_PORT or 6600.</span>
 <span class="hljs-comment">#port = 6600</span>
-
-[last.fm]
-<span class="hljs-constant">url</span> = http://post.audioscrobbler.com/
-<span class="hljs-constant">username</span> = YOUR_LASTFM_USERNAME
-<span class="hljs-constant">password</span> = YOUR_LASTFM_PASSWORD
+<span class="hljs-section">
+[last.fm]</span>
+<span class="hljs-attr">url</span> = http://post.audioscrobbler.com/
+<span class="hljs-attr">username</span> = YOUR_LASTFM_USERNAME
+<span class="hljs-attr">password</span> = YOUR_LASTFM_PASSWORD
 <span class="hljs-comment"># The file where mpdscribble should store its Last.fm journal in case</span>
 <span class="hljs-comment"># you do not have a connection to the Last.fm server.</span>
-<span class="hljs-constant">journal</span> = /var/cache/mpdscribble/lastfm.journal
+<span class="hljs-attr">journal</span> = /var/cache/mpdscribble/lastfm.journal
 </code></pre>
 <p>Mpdscribble will now scrobble everything that mpd plays.</p>
 <h2 id="bonus-ripping-cds-what-s-a-cd-">Bonus: Ripping CDs (What&#39;s a CD?)</h2>
