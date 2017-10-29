@@ -23,7 +23,7 @@ layout: 'default'
                 <h2><a href="<%- @site.root %>/posts.html">Latest blog posts</a></h2>
                 <% for post in @getCollection("posts").toJSON()[0..2]: %>
                 <p>
-                    <strong><%- @formatDate(post.date) %></strong> &ndash;
+                    <strong class="inlineHeader"><%- @formatDate(post.date) %></strong> &ndash;
                     <a href="<%- @site.root + post.url %>"><%- post.title %></a>
                 </p>
                 <% end %>

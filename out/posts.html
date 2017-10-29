@@ -19,7 +19,7 @@
 	<meta name="author" content="Steve Rubin" />
 
 	<!-- Output DocPad produced meta elements -->
-	<meta name="generator" content="DocPad v6.78.5" />
+	<meta name="generator" content="DocPad v6.78.6" />
 
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,13 +66,13 @@
 <p>That&#39;s annoying to do automatically, but there&#39;s a great tool called <a href="http://www.hammerspoon.org">Hammerspoon</a> that lets you automate lots of things like this on macOS. Here&#39;s the Hammerspoon script I whipped up (<a href="https://github.com/srubin/hammersteve">and on github</a>):</p>
 <pre class="highlight"><code class="hljs lua"><span class="hljs-comment">-- Avoid automatically setting a bluetooth audio input device</span>
 
-lastSetDeviceTime = os.time()
+lastSetDeviceTime = <span class="hljs-built_in">os</span>.<span class="hljs-built_in">time</span>()
 lastInputDevice = <span class="hljs-literal">nil</span>
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">audioDeviceChanged</span><span class="hljs-params">(arg)</span></span>
     <span class="hljs-keyword">if</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dev#'</span> <span class="hljs-keyword">then</span>
-        lastSetDeviceTime = os.time()
-    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dIn '</span> <span class="hljs-keyword">and</span> os.time() - lastSetDeviceTime &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+        lastSetDeviceTime = <span class="hljs-built_in">os</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">arg</span> == <span class="hljs-string">'dIn '</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">os</span>.<span class="hljs-built_in">time</span>() - lastSetDeviceTime &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
         inputDevice = hs.audiodevice.defaultInputDevice()
         <span class="hljs-keyword">if</span> inputDevice:transportType() == <span class="hljs-string">'Bluetooth'</span> <span class="hljs-keyword">then</span>
             internalMic = lastInputDevice <span class="hljs-keyword">or</span> hs.audiodevice.findInputByName(<span class="hljs-string">'Built-in Microphone'</span>)
