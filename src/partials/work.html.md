@@ -1,5 +1,8 @@
-### Software Engineer &mdash; Detour
-*March 2015 &mdash; present*
+<h3>Software Engineer &mdash; [Descript][descript]</h3>
+*September 2017 &mdash; *
+
+<h3>Software Engineer &mdash; [Detour][detour]</h3>
+*March 2015 &mdash; September 2017*
 
 <h3>Graduate student researcher &mdash; UC Berkeley</h3>
 *Spring 2015, 2013, 2012. Fall 2014, 2013, 2012, 2011*
@@ -12,4 +15,5 @@
 *Spring 2014 &ndash; CS160 (User Interface Design, taught by Maneesh Agrawala and Björn Hartmann)*
 
 [adobe]: http://www.adobe.com/technology.html
-
+[descript]: https://www.descript.com
+[detour]: https://www.detour.com
