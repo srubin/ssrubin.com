@@ -24,10 +24,6 @@
     "type": "git",
     "url": "http://github.com/docpad/twitter-bootstrap.docpad.git"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  },
   "dependencies": {
     "docpad": "~6.78.4",
     "docpad-plugin-coffeescript": "~2.5.0",
