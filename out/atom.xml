@@ -3,7 +3,7 @@
 	<title>Steve Rubin's blog</title>
 	<link href="https://ssrubin.com/atom.xml" rel="self"/>
 	<link href="https://ssrubin.com"/>
-	<updated>2017-12-12T16:05:22.684Z</updated>
+	<updated>2018-09-14T15:30:11.929Z</updated>
 	<id>https://ssrubin.com</id>
 	<author>
 		<name>Steve Rubin</name>
@@ -126,7 +126,7 @@ audio_output {
 &lt;p&gt;Run ncmpcpp in the terminal:&lt;/p&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;ncmpcpp
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You&amp;#39;ll see a playlist screen. (Pro tip: if you&amp;#39;re using iTerm 2 v3 and you see a bunch of q&amp;#39;s instead of nice lines in the UI, &lt;a href=&quot;../img/iterm2.png&quot;&gt;enable this iTerm option.&lt;/a&gt;) To browse your music library, hit tab. You can search this screen by typing &lt;code&gt;/&lt;/code&gt; and then a search term, and hitting &lt;code&gt;.&lt;/code&gt; to find the next match. To go a level deeper in the folder structure, hit return on a folder. To add a folder or file to your playlist, hit space. If you want more control over how it&amp;#39;s added, hit &lt;code&gt;a&lt;/code&gt; instead. There&amp;#39;s also a slightly cleaner media library view that you can find by hitting &lt;code&gt;4&lt;/code&gt;. To start playback, hit tab again to return to the playlist screen and press return. There&amp;#39;s a more advanced search interface available by typing &lt;code&gt;3&lt;/code&gt;—press return on a category, type your query, and hit &lt;code&gt;y&lt;/code&gt; to see the results. You can find out &lt;a href=&quot;http://rybczak.net/ncmpcpp/&quot;&gt;more about ncmpcpp here&lt;/a&gt;. Hit &lt;code&gt;F1&lt;/code&gt; to see the help screen.&lt;/p&gt;
+&lt;p&gt;You&amp;#39;ll see a playlist screen. (Pro tip: if you&amp;#39;re using iTerm 2 v3 and you see a bunch of q&amp;#39;s instead of nice lines in the UI, &lt;a href=&quot;../img/musiclibrary/iterm2.png&quot;&gt;enable this iTerm option.&lt;/a&gt;) To browse your music library, hit tab. You can search this screen by typing &lt;code&gt;/&lt;/code&gt; and then a search term, and hitting &lt;code&gt;.&lt;/code&gt; to find the next match. To go a level deeper in the folder structure, hit return on a folder. To add a folder or file to your playlist, hit space. If you want more control over how it&amp;#39;s added, hit &lt;code&gt;a&lt;/code&gt; instead. There&amp;#39;s also a slightly cleaner media library view that you can find by hitting &lt;code&gt;4&lt;/code&gt;. To start playback, hit tab again to return to the playlist screen and press return. There&amp;#39;s a more advanced search interface available by typing &lt;code&gt;3&lt;/code&gt;—press return on a category, type your query, and hit &lt;code&gt;y&lt;/code&gt; to see the results. You can find out &lt;a href=&quot;http://rybczak.net/ncmpcpp/&quot;&gt;more about ncmpcpp here&lt;/a&gt;. Hit &lt;code&gt;F1&lt;/code&gt; to see the help screen.&lt;/p&gt;
 &lt;p&gt;You can quit ncmpcpp by typing &lt;code&gt;q&lt;/code&gt;. But remember: the music will keep playing. If you want to toggle play/pause without opening ncmpcpp, you can use mpc from the terminal:&lt;/p&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs bash&quot;&gt;mpc toggle
 &lt;/code&gt;&lt;/pre&gt;
