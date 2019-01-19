@@ -7,6 +7,10 @@
 
 a, a:link
     cursor pointer
+    color: green
+  
+a:active, a:hover, a:visited
+    color: darkgreen
 
 body
     
@@ -57,26 +61,16 @@ h3
 
 .navigation.affix
     position fixed
-    top 0px
-
-
-.navbar-inner {
-  background-color: #6B238E;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#6B238E), to(#9370DB)); /* Chrome, Safari 4+ */
-  background-image: -webkit-linear-gradient(45deg, #6B238E, #9370DB); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
-  background-image:    -moz-linear-gradient(45deg, #6B238E, #9370DB); /* Firefox 3.6-15 */
-  background-image:      -o-linear-gradient(45deg, #6B238E, #9370DB); /* Opera 11.10-12.00 */
-  background-image:         linear-gradient(to top right, #6B238E, #9370DB); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
-}
+    top 0
 
 #maincontent ul li
     list-style-type none
     padding 2px
-    color #8F8FBD
+    color #82b89d
 
 #maincontent ul
     font-size 12pt
-    border-left 5px solid #8F8FBD
+    border-left 5px solid #82b89d
     padding-left 15px
 
 pre
@@ -108,13 +102,10 @@ ol li, ul li
 .navlist li:last-child:after
   content "."
 
-.fadedTop
-  // mask-image: gradient(linear, left 90%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
-  // -webkit-mask-image: -webkit-gradient(linear, left 90%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
-  opacity: 0.7
-  height: 28px
-  width: 800px
-  object-fit: cover
-
 .inlineHeader
   font-family "PT Sans"
+
+@media (max-width: 766px)
+  .steve-img
+    max-height: 191px
+    object-fit scale-down

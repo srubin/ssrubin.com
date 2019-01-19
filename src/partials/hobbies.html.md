@@ -1,5 +1,3 @@
-<img src="img/glacier-national-park.jpg" alt="Scenic Point, Glacier National Park, July 2014" class="fadedTop" />
-
 My hobbies include listening to music and going to shows
 
 * [my last.fm profile][lastfm]
