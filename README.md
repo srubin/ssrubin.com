@@ -3,8 +3,8 @@ ssrubin.com
 
 Personal web site.
 
-First, run `npm install`
+First, run `yarn install`
 
-To generate site: `docpad generate --env static,deploy`
+To generate site: `yarn run docpad generate --env static,deploy`
   
-Local testing: `docpad run`
+Local testing: `yarn run docpad run`

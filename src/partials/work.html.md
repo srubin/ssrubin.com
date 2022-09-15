@@ -1,5 +1,8 @@
+<h3>Technical Lead Manager &mdash; [Descript][descript]</h3>
+*May 2021 &mdash; *
+
 <h3>Software Engineer &mdash; [Descript][descript]</h3>
-*September 2017 &mdash; *
+*September 2017 &mdash; May 2021*
 
 <h3>Software Engineer &mdash; [Detour][detour]</h3>
 *March 2015 &mdash; September 2017*
