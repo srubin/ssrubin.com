@@ -1,5 +1,8 @@
+<h3>Software Engineering Manager &mdash; [Descript][descript]</h3>
+*May 2022 &mdash; *
+
 <h3>Technical Lead Manager &mdash; [Descript][descript]</h3>
-*May 2021 &mdash; *
+*May 2021 &mdash; May 2022*
 
 <h3>Software Engineer &mdash; [Descript][descript]</h3>
 *September 2017 &mdash; May 2021*
