@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+permalink: /index.html
+---
+<div class="row">
+  <div class="span2">
+    <img class="steve-img" src="/img/steverubin.jpg" alt="">
+  </div>
+  <div class="span10 pull-down">
+    <div class="row">
+      <div class="span5"><h1>Steve Rubin</h1></div>
+      <div class="span5"><p>srubin at cs.berkeley.edu</p></div>
+    </div>
+    <div class="row">
+      <div class="span5">
+        {% renderFile "src/_includes/partials/about.md", {}, "md" %}
+      </div>
+      <div class="span5">
+        <h2><a href="/posts.html">Latest blog posts</a></h2>
+        {% for post in collections.posts | reverse %}{% if loop.index <= 3 %}
+        <p>
+          <strong class="inlineHeader">{{ post.date | formatDate }}</strong> &ndash;
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </p>
+        {% endif %}{% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="offset2 span10">
+    <ul class="navlist">
+      <li><a href="#research">research</a></li>
+      <li><a href="#background">background</a></li>
+      <li><a href="#hobbies">hobbies</a></li>
+      <li><a href="#work">work</a></li>
+      <li><a href="#classes">classes</a></li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<div id="maincontent">
+
+  <div class="row" id="research">
+    <div class="span2"><h2>Research</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/research.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer">
+    <div class="offset2 span10"><h3>Publications</h3></div>
+  </div>
+
+  <div class="row">
+    <div class="offset2 span8">
+      {% for pub in collections.pubs %}
+      <div class="paper">
+        {% if pub.data.link %}<a href="{{ pub.data.link }}">{{ pub.data.title }}</a><br>
+        {% else %}{{ pub.data.title }}<br>{% endif %}
+        {{ pub.data.authors | safe }}<br>
+        {{ pub.data.venueFull | safe }} ({{ pub.data.venueShort | safe }}).
+        {{ pub.templateContent | safe }}
+        {% if not loop.last %}<hr>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="row top-buffer" id="software">
+    <div class="span2"><h2>Software</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/software.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer" id="background">
+    <div class="span2"><h2>Background</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/background.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer" id="hobbies">
+    <div class="span2"><h2>Hobbies</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/hobbies.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer" id="work">
+    <div class="span2"><h2>Work</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/work.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer" id="classes">
+    <div class="span2"><h2>Classes</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/classes.md", {}, "md" %}</div>
+  </div>
+
+  <div class="row top-buffer" id="service">
+    <div class="span2"><h2>Service</h2></div>
+    <div class="span8">{% renderFile "src/_includes/partials/service.md", {}, "md" %}</div>
+  </div>
+
+</div>
