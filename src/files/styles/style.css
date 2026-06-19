@@ -76,7 +76,7 @@ blockquote { border-left: 4px solid var(--rule); margin: 1em 0; padding-left: 1e
 .span12 { grid-column-end: span 12; }
 .offset2 { grid-column-start: 3; }
 
-.steve-img { max-height: 191px; object-fit: scale-down; }
+.steve-img { width: 100%; }
 
 /* --- "Below: research, …, and classes." inline nav --- */
 .navlist, .navlist ul, .navlist li { display: inline; font-size: 1rem; margin: 0; padding: 0; }
@@ -145,4 +145,5 @@ pre[class*="language-"] {
   .row { grid-template-columns: 1fr; gap: 8px; }
   [class*="span"] { grid-column: 1 / -1 !important; }
   .offset2 { grid-column-start: 1; }
+  .steve-img { width: auto; max-height: 240px; object-fit: scale-down; }
 }
