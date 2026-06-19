@@ -1,43 +1,17 @@
 {
-  "name": "twitter-bootstrap.docpad",
-  "version": "0.9.0",
-  "description": "Twitter Bootstrap skeleton for DocPad. Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.",
-  "homepage": "https://github.com/bevry/twitter-bootstrap.docpad",
-  "keywords": [
-    "docpad-skeleton",
-    "docpad",
-    "website",
-    "bootstrap",
-    "twitter bootstrap"
-  ],
-  "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
-  "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
-  "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
-  "bugs": {
-    "url": "https://github.com/docpad/twitter-bootstrap.docpad/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/docpad/twitter-bootstrap.docpad.git"
-  },
-  "dependencies": {
-    "docpad": "~6.78.4",
-    "docpad-plugin-coffeescript": "~2.5.0",
-    "docpad-plugin-eco": "~2.1.0",
-    "docpad-plugin-highlightjs": "~2.4.0",
-    "docpad-plugin-less": "~2.4.1",
-    "docpad-plugin-marked": "~2.3.0",
-    "docpad-plugin-partials": "~2.9.2",
-    "docpad-plugin-services": "~2.6.0",
-    "docpad-plugin-stylus": "~2.11.0",
-    "docpad-plugin-text": "~2.3.3"
+  "name": "ssrubin.com",
+  "version": "1.0.0",
+  "description": "Personal website of Steve Rubin",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rm -rf _site"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "^2.11.0"
-  },
-  "main": "node_modules/docpad/bin/docpad-server"
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+  }
 }
