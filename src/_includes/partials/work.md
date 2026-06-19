@@ -1,5 +1,8 @@
+### Staff Software Engineer &mdash; [Descript][descript]
+*June 2025 &mdash;*
+
 ### Software Engineering Manager &mdash; [Descript][descript]
-*May 2022 &mdash;*
+*May 2022 &mdash; June 2025*
 
 ### Technical Lead Manager &mdash; [Descript][descript]
 *May 2021 &mdash; May 2022*
